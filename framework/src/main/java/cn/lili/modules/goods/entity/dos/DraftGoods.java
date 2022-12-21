@@ -23,7 +23,7 @@ import javax.validation.constraints.Max;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("li_draft_goods")
+@TableName("sg_draft_goods")
 @ApiModel(value = "草稿商品")
 @AllArgsConstructor
 @NoArgsConstructor

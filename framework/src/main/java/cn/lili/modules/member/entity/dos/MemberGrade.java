@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
  * @since 2021/5/14 5:43 下午
  */
 @Data
-@TableName("li_member_grade")
+@TableName("sg_member_grade")
 @ApiModel(value = "会员等级")
 public class MemberGrade extends BaseEntity {
 

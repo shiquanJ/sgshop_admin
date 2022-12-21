@@ -14,7 +14,7 @@ import lombok.Data;
  * @since 2020/11/17 4:27 下午
  */
 @Data
-@TableName("li_freight_template_child")
+@TableName("sg_freight_template_child")
 @ApiModel(value = "运费模板子配置")
 public class FreightTemplateChild extends BaseEntity {
 

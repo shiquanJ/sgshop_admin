@@ -24,7 +24,7 @@ public interface KanJiaActivityGoodsMapper extends BaseMapper<KanjiaActivityGood
      * @param queryWrapper 查询条件
      * @return 砍价商品VO分页
      */
-    @Select("SELECT * FROM li_kanjia_activity_goods ${ew.customSqlSegment}")
+    @Select("SELECT * FROM sg_kanjia_activity_goods ${ew.customSqlSegment}")
     IPage<KanjiaActivityGoodsListVO> kanjiaActivityGoodsVOPage(IPage<KanjiaActivityGoods> page, @Param(Constants.WRAPPER) Wrapper<KanjiaActivityGoods> queryWrapper);
 
 }

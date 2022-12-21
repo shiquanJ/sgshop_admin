@@ -24,7 +24,7 @@ public interface MemberStatisticsMapper extends BaseMapper<MemberStatisticsData>
      * @param queryWrapper 查询条件
      * @return 会员统计数量
      */
-    @Select("SELECT  COUNT(0)  FROM li_member  ${ew.customSqlSegment}")
+    @Select("SELECT  COUNT(0)  FROM sg_member  ${ew.customSqlSegment}")
     long customSqlQuery(@Param(Constants.WRAPPER) Wrapper queryWrapper);
 
 
@@ -32,6 +32,6 @@ public interface MemberStatisticsMapper extends BaseMapper<MemberStatisticsData>
      * 获取会员分布列表
      * @return 会员分布列表
      */
-    @Select("select client_enum,count(0) as num from li_member group by client_enum")
+    @Select("select client_enum,count(0) as num from sg_member group by client_enum")
     List<MemberDistributionVO> distribution();
 }

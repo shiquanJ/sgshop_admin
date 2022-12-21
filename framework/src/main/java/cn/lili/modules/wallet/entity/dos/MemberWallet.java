@@ -14,7 +14,7 @@ import lombok.Data;
  * @since 2020-02-25 14:10:16
  */
 @Data
-@TableName("li_member_wallet")
+@TableName("sg_member_wallet")
 @ApiModel(value = "会员预存款")
 public class MemberWallet extends BaseEntity {
 

@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
  * @since 2020/11/17 7:22 下午
  */
 @Data
-@TableName("li_foot_print")
+@TableName("sg_foot_print")
 @ApiModel(value = "浏览历史")
 @NoArgsConstructor
 @AllArgsConstructor

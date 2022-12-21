@@ -17,7 +17,7 @@ import java.util.Date;
  */
 @Data
 @ApiModel(value = "供求单")
-@TableName("li_purchase_order")
+@TableName("sg_purchase_order")
 public class PurchaseOrder extends BaseEntity {
 
     @ApiModelProperty(value = "标题")

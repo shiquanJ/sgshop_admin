@@ -21,7 +21,7 @@ import java.util.Date;
  **/
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("li_order_complaint")
+@TableName("sg_order_complaint")
 @ApiModel(value = "订单交易投诉")
 public class OrderComplaint extends BaseEntity {
 

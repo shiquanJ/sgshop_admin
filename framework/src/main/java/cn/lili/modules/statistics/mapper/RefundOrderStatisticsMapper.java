@@ -24,6 +24,6 @@ public interface RefundOrderStatisticsMapper extends BaseMapper<StoreFlow> {
      * @param queryWrapper 查询条件
      * @return 退款统计分页
      */
-    @Select("SELECT refund_sn,store_name,member_name,name,specs,final_price FROM li_store_flow ${ew.customSqlSegment}")
+    @Select("SELECT refund_sn,store_name,member_name,name,specs,final_price FROM sg_store_flow ${ew.customSqlSegment}")
     IPage<RefundOrderStatisticsDataVO> getRefundStatisticsData(IPage<RefundOrderStatisticsDataVO> page, @Param(Constants.WRAPPER) Wrapper<RefundOrderStatisticsDataVO> queryWrapper);
 }

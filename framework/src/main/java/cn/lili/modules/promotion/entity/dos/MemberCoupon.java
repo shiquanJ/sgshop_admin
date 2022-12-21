@@ -27,7 +27,7 @@ import java.util.Date;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("li_member_coupon")
+@TableName("sg_member_coupon")
 @ApiModel(value = "会员优惠券")
 public class MemberCoupon extends BaseEntity {
 

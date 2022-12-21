@@ -37,7 +37,7 @@ import java.util.Optional;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("li_order")
+@TableName("sg_order")
 @ApiModel(value = "订单")
 @NoArgsConstructor
 public class Order extends BaseEntity {

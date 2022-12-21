@@ -21,7 +21,7 @@ import org.springframework.beans.BeanUtils;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("li_coupon")
+@TableName("sg_coupon")
 @ApiModel(value = "优惠券实体类")
 @ToString(callSuper = true)
 @NoArgsConstructor

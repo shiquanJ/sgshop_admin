@@ -15,7 +15,7 @@ import javax.validation.constraints.NotEmpty;
  * @since 2020/11/17 8:01 下午
  */
 @Data
-@TableName("li_logistics")
+@TableName("sg_logistics")
 @ApiModel(value = "物流公司")
 public class Logistics extends BaseEntity {
 

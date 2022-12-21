@@ -11,7 +11,7 @@ import lombok.Data;
  * @author Chopper
  */
 @Data
-@TableName("li_wechat_mp_message")
+@TableName("sg_wechat_mp_message")
 @ApiModel(value = "微信小程序消息订阅")
 public class WechatMPMessage extends BaseEntity {
 

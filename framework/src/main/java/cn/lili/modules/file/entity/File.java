@@ -16,7 +16,7 @@ import lombok.Data;
  * @since 2020/11/26 15:35
  */
 @Data
-@TableName("li_file")
+@TableName("sg_file")
 @ApiModel(value = "文件")
 public class File extends BaseEntity {
 

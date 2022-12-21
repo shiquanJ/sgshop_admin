@@ -21,7 +21,7 @@ import java.util.Date;
  * @since 2020-03-14 23:04:56
  */
 @Data
-@TableName("li_distribution_cash")
+@TableName("sg_distribution_cash")
 @ApiModel(value = "分销佣金")
 @NoArgsConstructor
 @AllArgsConstructor

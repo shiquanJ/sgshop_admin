@@ -24,7 +24,7 @@ import java.util.Date;
  * @since 2021/1/28 09:21
  */
 @Data
-@TableName("li_refund_log")
+@TableName("sg_refund_log")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor

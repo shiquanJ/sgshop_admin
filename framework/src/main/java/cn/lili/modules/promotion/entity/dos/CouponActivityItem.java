@@ -15,7 +15,7 @@ import lombok.EqualsAndHashCode;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("li_coupon_activity_item")
+@TableName("sg_coupon_activity_item")
 @ApiModel(value = "优惠券活动-优惠券关联实体类")
 public class CouponActivityItem extends BaseEntity {
 

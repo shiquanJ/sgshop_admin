@@ -24,7 +24,7 @@ import java.util.Date;
  */
 @Data
 @ApiModel(value = "分销订单")
-@TableName("li_distribution_order")
+@TableName("sg_distribution_order")
 @NoArgsConstructor
 public class DistributionOrder extends BaseIdEntity {
 

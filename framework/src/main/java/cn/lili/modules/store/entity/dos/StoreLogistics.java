@@ -18,7 +18,7 @@ import javax.validation.constraints.NotNull;
  * @since 2020/11/17 8:01 下午
  */
 @Data
-@TableName("li_store_logistics")
+@TableName("sg_store_logistics")
 @ApiModel(value = "店铺-物流公司")
 @AllArgsConstructor
 @NoArgsConstructor

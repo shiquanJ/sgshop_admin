@@ -14,7 +14,7 @@ import lombok.Data;
  * @date 2020-7-1 10:44 上午
  */
 @Data
-@TableName("li_kanjia_activity_log")
+@TableName("sg_kanjia_activity_log")
 @ApiModel(value = "砍价活动日志对象")
 public class KanjiaActivityLog extends BaseEntity {
 

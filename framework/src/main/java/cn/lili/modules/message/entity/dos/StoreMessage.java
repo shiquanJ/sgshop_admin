@@ -22,7 +22,7 @@ import java.util.Date;
  * @since 2021/1/30 4:13 下午
  */
 @Data
-@TableName("li_store_message")
+@TableName("sg_store_message")
 @ApiModel(value = "店铺消息")
 public class StoreMessage extends BaseIdEntity {
 

@@ -25,7 +25,7 @@ import java.util.Date;
  * @since 2020-02-18 15:18:56
  */
 @Data
-@TableName("li_store")
+@TableName("sg_store")
 @ApiModel(value = "店铺")
 @NoArgsConstructor
 public class Store extends BaseEntity {

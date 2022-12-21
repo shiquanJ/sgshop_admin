@@ -22,7 +22,7 @@ import java.util.Date;
  * @since 2020-02-25 14:10:16
  */
 @Data
-@TableName("li_member_withdraw_apply")
+@TableName("sg_member_withdraw_apply")
 @ApiModel(value = "会员提现申请")
 public class MemberWithdrawApply extends BaseEntity {
 

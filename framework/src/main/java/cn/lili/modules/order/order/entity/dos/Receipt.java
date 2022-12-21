@@ -14,7 +14,7 @@ import lombok.Data;
  * @since 2020/11/28 11:38
  */
 @Data
-@TableName("li_receipt")
+@TableName("sg_receipt")
 @ApiModel(value = "发票")
 public class Receipt extends BaseEntity {
 

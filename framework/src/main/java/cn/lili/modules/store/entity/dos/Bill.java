@@ -21,7 +21,7 @@ import java.util.Date;
  * @since 2020/11/17 4:27 下午
  */
 @Data
-@TableName("li_bill")
+@TableName("sg_bill")
 @ApiModel(value = "结算单")
 public class Bill extends BaseIdEntity {
 

@@ -24,7 +24,7 @@ public interface MemberSignMapper extends BaseMapper<MemberSign> {
      * @param memberId 会员ID
      * @return 会员签到列表
      */
-    @Select("SELECT * FROM li_member_sign WHERE TO_DAYS( NOW( ) ) - TO_DAYS( create_time) = 1 and member_id = #{memberId}")
+    @Select("SELECT * FROM sg_member_sign WHERE TO_DAYS( NOW( ) ) - TO_DAYS( create_time) = 1 and member_id = #{memberId}")
     List<MemberSign> getBeforeMemberSign(String memberId);
 
     /**
@@ -33,7 +33,7 @@ public interface MemberSignMapper extends BaseMapper<MemberSign> {
      * @param queryWrapper 查询条件
      * @return 会员签到列表
      */
-    @Select("select * from li_member_sign ${ew.customSqlSegment}")
+    @Select("select * from sg_member_sign ${ew.customSqlSegment}")
     List<MemberSign> getTodayMemberSign(@Param(Constants.WRAPPER) Wrapper<MemberSign> queryWrapper);
 
     /**
@@ -43,7 +43,7 @@ public interface MemberSignMapper extends BaseMapper<MemberSign> {
      * @param time     时间
      * @return 会员签到列表
      */
-    @Select("SELECT * FROM li_member_sign WHERE DATE_FORMAT(create_time,'%Y%m') = #{time} and member_id = #{memberId}")
+    @Select("SELECT * FROM sg_member_sign WHERE DATE_FORMAT(create_time,'%Y%m') = #{time} and member_id = #{memberId}")
     List<MemberSign> getMonthMemberSign(String memberId, String time);
 
 }

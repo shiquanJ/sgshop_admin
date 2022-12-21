@@ -27,7 +27,7 @@ import java.util.Date;
  * @since 2020-02-25 14:10:16
  */
 @Data
-@TableName("li_recharge")
+@TableName("sg_recharge")
 @ApiModel(value = "预存款充值记录")
 @AllArgsConstructor
 @NoArgsConstructor

@@ -15,7 +15,7 @@ import java.math.BigDecimal;
  * @since 2020/11/19 12:12
  */
 @Data
-@TableName("li_menu")
+@TableName("sg_menu")
 @ApiModel(value = "菜单权限")
 public class Menu extends BaseEntity {
 

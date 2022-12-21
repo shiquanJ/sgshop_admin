@@ -26,7 +26,7 @@ public interface BillMapper extends BaseMapper<Bill> {
      * @param queryWrapper 查询条件
      * @return 结算单分页
      */
-    @Select("select b.id,b.sn,b.start_time,b.end_time,b.bill_status,b.store_name,b.bill_price,b.create_time from li_bill as b ${ew.customSqlSegment}")
+    @Select("select b.id,b.sn,b.start_time,b.end_time,b.bill_status,b.store_name,b.bill_price,b.create_time from sg_bill as b ${ew.customSqlSegment}")
     IPage<BillListVO> queryBillPage(IPage<BillListVO> page, @Param(Constants.WRAPPER) Wrapper<BillListVO> queryWrapper);
 
     /**
@@ -40,7 +40,7 @@ public interface BillMapper extends BaseMapper<Bill> {
             ",IFNULL(SUM( point_settlement_price ),0) AS pointSettlementPrice " +
             ",IFNULL(SUM( kanjia_settlement_price ),0) AS kanjiaSettlementPrice " +
             ",IFNULL(SUM( bill_price ),0) AS billPrice " +
-            "FROM li_store_flow ${ew.customSqlSegment}")
+            "FROM sg_store_flow ${ew.customSqlSegment}")
     Bill getOrderBill(@Param(Constants.WRAPPER) QueryWrapper<Bill> queryWrapper);
 
     /**
@@ -51,6 +51,6 @@ public interface BillMapper extends BaseMapper<Bill> {
      */
     @Select("SELECT IFNULL(SUM( final_price ),0) AS refundPrice,IFNULL(SUM( commission_price ),0) AS refundCommissionPrice" +
             ",IFNULL(SUM( distribution_rebate ),0) AS distributionRefundCommission,IFNULL(SUM( site_coupon_commission ),0) AS siteCouponRefundCommission" +
-            ",IFNULL(SUM( final_price ),0) AS billPrice FROM li_store_flow ${ew.customSqlSegment}")
+            ",IFNULL(SUM( final_price ),0) AS billPrice FROM sg_store_flow ${ew.customSqlSegment}")
     Bill getRefundBill(@Param(Constants.WRAPPER) QueryWrapper<Bill> queryWrapper);
 }

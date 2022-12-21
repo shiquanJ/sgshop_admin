@@ -13,7 +13,7 @@ import lombok.Data;
  * @since 2020-02-25 14:10:16
  */
 @Data
-@TableName("li_service_notice")
+@TableName("sg_service_notice")
 @ApiModel(value = "服务订阅消息")
 public class ServiceNotice extends BaseEntity {
 

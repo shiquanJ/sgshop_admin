@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
  * @since 2020/11/17 7:30 下午
  */
 @Data
-@TableName("li_order_item")
+@TableName("sg_order_item")
 @ApiModel(value = "子订单")
 @NoArgsConstructor
 @AllArgsConstructor

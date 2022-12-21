@@ -23,7 +23,7 @@ import java.util.Date;
  * @since 2020-03-25 2:30 下午
  */
 @Data
-@TableName("li_after_sale_log")
+@TableName("sg_after_sale_log")
 @ApiModel(value = "售后日志")
 @NoArgsConstructor
 public class AfterSaleLog extends BaseIdEntity {

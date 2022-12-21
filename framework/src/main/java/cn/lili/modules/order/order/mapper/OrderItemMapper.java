@@ -24,6 +24,6 @@ public interface OrderItemMapper extends BaseMapper<OrderItem> {
      * @param queryWrapper 查询条件
      * @return 订单子项列表
      */
-    @Select("SELECT * FROM li_order_item AS oi INNER JOIN li_order AS o ON oi.order_sn=o.sn ${ew.customSqlSegment}")
+    @Select("SELECT * FROM sg_order_item AS oi INNER JOIN sg_order AS o ON oi.order_sn=o.sn ${ew.customSqlSegment}")
     List<OrderItem> waitOperationOrderItem(@Param(Constants.WRAPPER) Wrapper<OrderSimpleVO> queryWrapper);
 }

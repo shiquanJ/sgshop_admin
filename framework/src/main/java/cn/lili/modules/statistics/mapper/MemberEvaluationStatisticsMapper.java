@@ -29,7 +29,7 @@ public interface MemberEvaluationStatisticsMapper extends BaseMapper<MemberEvalu
      * @param queryWrapper 查询条件
      * @return 会员评价分页
      */
-    @Select("select me.* from li_member_evaluation as me ${ew.customSqlSegment}")
+    @Select("select me.* from sg_member_evaluation as me ${ew.customSqlSegment}")
     IPage<MemberEvaluationListVO> getMemberEvaluationList(IPage<MemberEvaluationListVO> page, @Param(Constants.WRAPPER) Wrapper<MemberEvaluationListVO> queryWrapper);
 
     /**
@@ -38,7 +38,7 @@ public interface MemberEvaluationStatisticsMapper extends BaseMapper<MemberEvalu
      * @param goodsId 商品ID
      * @return 会员评价
      */
-    @Select("select grade,count(1) as num from li_member_evaluation Where goods_id=#{goodsId} and status='OPEN' GROUP BY grade")
+    @Select("select grade,count(1) as num from sg_member_evaluation Where goods_id=#{goodsId} and status='OPEN' GROUP BY grade")
     List<Map<String, Object>> getEvaluationNumber(String goodsId);
 
     /**
@@ -50,7 +50,7 @@ public interface MemberEvaluationStatisticsMapper extends BaseMapper<MemberEvalu
     @Select("SELECT round( AVG( delivery_score ), 2 ) AS delivery_score" +
             ",round( AVG( description_score ), 2 ) AS description_score" +
             ",round( AVG( service_score ), 2 ) AS service_score " +
-            "FROM li_member_evaluation ${ew.customSqlSegment}")
+            "FROM sg_member_evaluation ${ew.customSqlSegment}")
     StoreRatingVO getStoreRatingVO(@Param(Constants.WRAPPER) Wrapper<MemberEvaluation> queryWrapper);
 
     /**
@@ -59,6 +59,6 @@ public interface MemberEvaluationStatisticsMapper extends BaseMapper<MemberEvalu
      * @param queryWrapper 查询条件
      * @return 评价数量
      */
-    @Select("SELECT goods_id,COUNT(goods_id) AS num FROM li_member_evaluation GROUP BY goods_id")
+    @Select("SELECT goods_id,COUNT(goods_id) AS num FROM sg_member_evaluation GROUP BY goods_id")
     List<Map<String, Object>> memberEvaluationNum(@Param(Constants.WRAPPER) Wrapper<MemberEvaluation> queryWrapper);
 }

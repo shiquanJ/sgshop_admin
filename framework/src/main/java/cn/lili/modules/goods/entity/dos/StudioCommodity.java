@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ApiModel(value = "直播间商品")
-@TableName("li_studio_commodity")
+@TableName("sg_studio_commodity")
 @NoArgsConstructor
 public class StudioCommodity extends BaseIdEntity {
 

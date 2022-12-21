@@ -17,7 +17,7 @@ import javax.validation.constraints.Size;
  * @since 2020-02-18 15:18:56
  */
 @Data
-@TableName("li_brand")
+@TableName("sg_brand")
 @ApiModel(value = "商品品牌")
 public class Brand extends BaseEntity {
 

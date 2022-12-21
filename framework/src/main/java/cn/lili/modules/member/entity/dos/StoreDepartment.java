@@ -16,7 +16,7 @@ import javax.validation.constraints.NotEmpty;
  * @since 2020/11/19 11:57
  */
 @Data
-@TableName("li_store_department")
+@TableName("sg_store_department")
 @ApiModel(value = "店铺部门")
 public class StoreDepartment extends BaseEntity {
 

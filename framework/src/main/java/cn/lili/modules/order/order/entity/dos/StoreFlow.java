@@ -31,7 +31,7 @@ import java.util.Date;
  * @since 2020/11/17 7:31 下午
  */
 @Data
-@TableName("li_store_flow")
+@TableName("sg_store_flow")
 @ApiModel(value = "商家订单流水")
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)

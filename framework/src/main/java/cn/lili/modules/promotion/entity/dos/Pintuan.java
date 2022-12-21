@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
  * @since 2020-03-19 10:44 上午
  */
 @Data
-@TableName("li_pintuan")
+@TableName("sg_pintuan")
 @ApiModel(value = "拼团")
 public class Pintuan extends BasePromotions {
 

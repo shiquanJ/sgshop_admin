@@ -23,7 +23,7 @@ import java.util.Date;
  * @since 2020-03-02 09:34:02
  */
 @Data
-@TableName("li_category_brand")
+@TableName("sg_category_brand")
 @ApiModel(value = "商品分类品牌关联")
 @NoArgsConstructor
 public class CategoryBrand extends BaseIdEntity {

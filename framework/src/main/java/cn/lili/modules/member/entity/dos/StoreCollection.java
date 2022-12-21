@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
  * @since 2020/11/18 3:32 下午
  */
 @Data
-@TableName("li_store_collection")
+@TableName("sg_store_collection")
 @ApiModel(value = "会员收藏")
 @NoArgsConstructor
 @AllArgsConstructor

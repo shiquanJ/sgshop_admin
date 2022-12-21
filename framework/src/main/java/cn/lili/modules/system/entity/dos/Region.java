@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
  * @since 2020-02-25 14:10:16
  */
 @Data
-@TableName("li_region")
+@TableName("sg_region")
 @ApiModel(value = "行政地区")
 public class Region extends BaseEntity {
 

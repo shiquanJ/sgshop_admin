@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
  * @date 2021/12/28 7:39 下午
  */
 @Data
-@TableName("li_clerk")
+@TableName("sg_clerk")
 @ApiModel(value = "店员")
 @NoArgsConstructor
 @AllArgsConstructor

@@ -23,7 +23,7 @@ import java.util.Date;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("li_goods_sku")
+@TableName("sg_goods_sku")
 @ApiModel(value = "商品sku对象")
 @NoArgsConstructor
 public class GoodsSku extends BaseEntity {

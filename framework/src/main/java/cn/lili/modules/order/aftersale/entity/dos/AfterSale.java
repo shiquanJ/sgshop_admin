@@ -19,7 +19,7 @@ import java.util.Date;
  * @since 2020/11/17 7:30 下午
  */
 @Data
-@TableName("li_after_sale")
+@TableName("sg_after_sale")
 @ApiModel(value = "售后")
 public class AfterSale extends BaseEntity {
 

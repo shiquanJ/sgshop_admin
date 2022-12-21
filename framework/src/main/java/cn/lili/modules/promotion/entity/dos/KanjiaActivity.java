@@ -17,7 +17,7 @@ import lombok.EqualsAndHashCode;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("li_kanjia_activity")
+@TableName("sg_kanjia_activity")
 @ApiModel(value = "砍价活动参与对象")
 public class KanjiaActivity extends BaseEntity {
 

@@ -18,7 +18,7 @@ import javax.validation.constraints.NotNull;
  * @since 2020-03-19 10:44 上午
  */
 @Data
-@TableName("li_seckill_apply")
+@TableName("sg_seckill_apply")
 @ApiModel(value = "秒杀活动申请")
 public class SeckillApply extends BaseEntity {
 

@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
  * 2020-02-25 14:10:16
  */
 @Data
-@TableName("li_sensitive_words")
+@TableName("sg_sensitive_words")
 @ApiModel(value = "敏感词")
 public class SensitiveWords extends BaseEntity {
 

@@ -16,7 +16,7 @@ import lombok.Data;
  */
 @Data
 @ApiModel(value = "直播间")
-@TableName("li_studio")
+@TableName("sg_studio")
 public class Studio extends BaseEntity {
 
     /**
