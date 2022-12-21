@@ -24,7 +24,7 @@ public interface AfterSaleMapper extends BaseMapper<AfterSale> {
      * @param queryWrapper 查询条件
      * @return 售后VO分页
      */
-    @Select("SELECT * FROM li_after_sale ${ew.customSqlSegment}")
+    @Select("SELECT * FROM sg_after_sale ${ew.customSqlSegment}")
     IPage<AfterSaleVO> queryByParams(IPage<AfterSaleVO> page, @Param(Constants.WRAPPER) Wrapper<AfterSaleVO> queryWrapper);
 
     /**
@@ -33,6 +33,6 @@ public interface AfterSaleMapper extends BaseMapper<AfterSale> {
      * @param sn 售后编号
      * @return 售后VO
      */
-    @Select("SELECT * FROM li_after_sale WHERE sn=#{sn}")
+    @Select("SELECT * FROM sg_after_sale WHERE sn=#{sn}")
     AfterSaleVO getAfterSaleVO(String sn);
 }

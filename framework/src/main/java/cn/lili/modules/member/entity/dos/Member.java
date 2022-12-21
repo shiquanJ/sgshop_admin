@@ -23,7 +23,7 @@ import java.util.Date;
  * @since 2020-02-25 14:10:16
  */
 @Data
-@TableName("li_member")
+@TableName("sg_member")
 @ApiModel(value = "会员")
 @NoArgsConstructor
 public class Member extends BaseEntity {

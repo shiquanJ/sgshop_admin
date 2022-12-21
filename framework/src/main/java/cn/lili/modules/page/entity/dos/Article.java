@@ -20,7 +20,7 @@ import javax.validation.constraints.NotNull;
  * @since 2020/12/10 17:42
  */
 @Data
-@TableName("li_article")
+@TableName("sg_article")
 @ApiModel(value = "文章")
 public class Article extends BaseEntity {
 

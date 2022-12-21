@@ -23,11 +23,11 @@ public interface StoreMenuMapper extends BaseMapper<StoreMenu> {
      * @param userId 用户ID
      * @return 菜单列表
      */
-    @Select("SELECT menu.* FROM li_store_menu AS menu WHERE menu.id IN (" +
-            "SELECT rm.menu_id FROM li_store_menu_role AS rm WHERE rm.role_id IN (" +
-            "SELECT ur.role_id FROM li_clerk_role AS ur WHERE ur.clerk_id=#{userId}) OR rm.role_id IN (" +
-            "SELECT dr.role_id FROM li_store_department_role AS dr WHERE dr.department_id=(" +
-            "SELECT department_id FROM li_clerk AS au WHERE au.id = #{userId})))")
+    @Select("SELECT menu.* FROM sg_store_menu AS menu WHERE menu.id IN (" +
+            "SELECT rm.menu_id FROM sg_store_menu_role AS rm WHERE rm.role_id IN (" +
+            "SELECT ur.role_id FROM sg_clerk_role AS ur WHERE ur.clerk_id=#{userId}) OR rm.role_id IN (" +
+            "SELECT dr.role_id FROM sg_store_department_role AS dr WHERE dr.department_id=(" +
+            "SELECT department_id FROM sg_clerk AS au WHERE au.id = #{userId})))")
     List<StoreMenu> findByUserId(String userId);
 
     /**
@@ -36,9 +36,9 @@ public interface StoreMenuMapper extends BaseMapper<StoreMenu> {
      * @param userId 用户ID
      * @return 用户菜单VO列表
      */
-    @Select("SELECT rm.is_super as is_super,m.*FROM li_store_menu AS m INNER JOIN li_store_menu_role AS rm ON rm.menu_id=m.id WHERE rm.role_id IN (" +
-            "SELECT ur.role_id FROM li_clerk_role AS ur WHERE ur.clerk_id=#{userId}) OR rm.role_id IN (" +
-            "SELECT dr.role_id FROM li_store_department_role AS dr INNER JOIN li_clerk AS au ON au.department_id=dr.department_id " +
+    @Select("SELECT rm.is_super as is_super,m.*FROM sg_store_menu AS m INNER JOIN sg_store_menu_role AS rm ON rm.menu_id=m.id WHERE rm.role_id IN (" +
+            "SELECT ur.role_id FROM sg_clerk_role AS ur WHERE ur.clerk_id=#{userId}) OR rm.role_id IN (" +
+            "SELECT dr.role_id FROM sg_store_department_role AS dr INNER JOIN sg_clerk AS au ON au.department_id=dr.department_id " +
             "WHERE au.id=#{userId}) GROUP BY m.id,rm.is_super ORDER BY rm.is_super desc")
     List<StoreUserMenuVO> getUserRoleMenu(String userId);
 }

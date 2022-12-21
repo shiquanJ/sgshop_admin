@@ -22,7 +22,7 @@ import javax.validation.constraints.NotNull;
  * @since 2020/12/10 17:42
  */
 @Data
-@TableName("li_article_category")
+@TableName("sg_article_category")
 @ApiModel(value = "文章分类")
 @NoArgsConstructor
 @AllArgsConstructor

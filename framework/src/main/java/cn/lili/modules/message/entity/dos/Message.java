@@ -17,7 +17,7 @@ import lombok.Data;
  */
 
 @Data
-@TableName("li_message")
+@TableName("sg_message")
 @ApiModel(value = "消息")
 public class Message extends BaseEntity {
 

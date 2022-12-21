@@ -22,7 +22,7 @@ import java.util.Date;
  * @since 2020-06-20 09:29:19
  */
 @Data
-@TableName("li_app_version")
+@TableName("sg_app_version")
 @ApiModel(value = "app版本控制")
 public class AppVersion extends BaseIdEntity {
 

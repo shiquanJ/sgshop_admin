@@ -26,11 +26,11 @@ public interface GoodsSkuMapper extends BaseMapper<GoodsSku> {
      * @param goodsId goodsId
      * @return 全部skuId的集合
      */
-    @Select("SELECT id FROM li_goods_sku WHERE goods_id = #{goodsId}")
+    @Select("SELECT id FROM sg_goods_sku WHERE goods_id = #{goodsId}")
     List<String> getGoodsSkuIdByGoodsId(String goodsId);
 
 
-    @Insert("replace into li_goods_sku (\n" +
+    @Insert("replace into sg_goods_sku (\n" +
             "\tid,\n" +
             "\tgoods_id,\n" +
             "\tspecs,\n" +
@@ -111,7 +111,7 @@ public interface GoodsSkuMapper extends BaseMapper<GoodsSku> {
      * @param queryWrapper 查询条件
      * @return 售后VO分页
      */
-    @Select("SELECT *,g.params as params FROM li_goods_sku gs inner join li_goods g on gs.goods_id = g.id ${ew.customSqlSegment}")
+    @Select("SELECT *,g.params as params FROM sg_goods_sku gs inner join sg_goods g on gs.goods_id = g.id ${ew.customSqlSegment}")
     IPage<GoodsSkuDTO> queryByParams(IPage<GoodsSkuDTO> page, @Param(Constants.WRAPPER) Wrapper<GoodsSkuDTO> queryWrapper);
 
 }

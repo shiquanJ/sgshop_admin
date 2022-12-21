@@ -22,7 +22,7 @@ import javax.validation.constraints.Size;
  */
 @Data
 @ApiModel(value = "分销员")
-@TableName("li_distribution")
+@TableName("sg_distribution")
 @NoArgsConstructor
 public class Distribution extends BaseEntity {
 

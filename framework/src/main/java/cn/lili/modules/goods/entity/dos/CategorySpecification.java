@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
  * @since 2020-02-26 10:34:02
  */
 @Data
-@TableName("li_category_specification")
+@TableName("sg_category_specification")
 @NoArgsConstructor
 @AllArgsConstructor
 @ApiModel(value = "商品分类规格")

@@ -22,7 +22,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName("li_hot_words_history")
+@TableName("sg_hot_words_history")
 public class HotWordsHistory extends BaseIdEntity implements Comparable<HotWordsHistory>, Serializable {
 
     /**

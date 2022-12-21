@@ -16,7 +16,7 @@ import lombok.Data;
  * @since 2020/12/10 17:02
  */
 @Data
-@TableName("li_wechat_message")
+@TableName("sg_wechat_message")
 @ApiModel(value = "微信消息")
 public class WechatMessage extends BaseEntity {
 

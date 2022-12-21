@@ -20,7 +20,7 @@ import java.util.Date;
  * @since 2021-03-29 14:10:16
  */
 @Data
-@TableName("li_member_receipt")
+@TableName("sg_member_receipt")
 @ApiModel(value = "会员发票")
 public class MemberReceipt extends BaseIdEntity {
 

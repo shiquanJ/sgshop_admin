@@ -13,7 +13,7 @@ import lombok.Data;
  * @since 2020/11/19 12:12
  */
 @Data
-@TableName("li_store_menu")
+@TableName("sg_store_menu")
 @ApiModel(value = "店铺菜单权限")
 public class StoreMenu extends BaseEntity {
 

@@ -15,7 +15,7 @@ import java.util.Date;
  * @since 2020-06-19 17:50
  */
 @Data
-@TableName("li_s_platform_view_data")
+@TableName("sg_s_platform_view_data")
 @ApiModel(value = "平台pv统计")
 public class PlatformViewData extends BaseIdEntity {
 

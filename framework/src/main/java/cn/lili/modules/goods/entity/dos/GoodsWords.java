@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
  * @since 2020/10/15
  */
 @Data
-@TableName("li_goods_words")
+@TableName("sg_goods_words")
 @ApiModel(value = "商品关键字")
 @NoArgsConstructor
 public class GoodsWords extends BaseEntity {

@@ -18,7 +18,7 @@ public interface AppVersionMapper extends BaseMapper<AppVersion> {
      * @param appType APP类型（Android、IOS）
      * @return APP版本
      */
-    @Select("SELECT * FROM li_app_version WHERE type=#{appType} ORDER BY version_update_date DESC LIMIT 1")
+    @Select("SELECT * FROM sg_app_version WHERE type=#{appType} ORDER BY version_update_date DESC LIMIT 1")
     AppVersion getLatestVersion(String appType);
 
 }

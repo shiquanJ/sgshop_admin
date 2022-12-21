@@ -35,7 +35,7 @@ import java.util.Map;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("li_goods")
+@TableName("sg_goods")
 @ApiModel(value = "商品")
 public class Goods extends BaseEntity {
 

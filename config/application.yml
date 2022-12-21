@@ -29,7 +29,7 @@ spring:
     type: redis
   # Redis
   redis:
-    host: 127.0.0.1
+    host: 8.142.251.252
     port: 6379
     password:
     lettuce:
@@ -60,9 +60,15 @@ spring:
       default-datasource:
         type: com.alibaba.druid.pool.DruidDataSource
         driverClassName: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://127.0.0.1:3306/shop?useUnicode=true&characterEncoding=utf-8&useSSL=false&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
-        username: root
-        password: root
+#        url: jdbc:mysql://127.0.0.1/sgmall_shop?useUnicode=true&characterEncoding=utf-8&useSSL=false&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+#        username: root
+#        password: root
+        url: jdbc:mysql://8.142.251.252/sgmall_shop?useUnicode=true&characterEncoding=utf-8&useSSL=false&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+        username: ngleadmin
+        password: ngle_root
+
+
+
         maxActive: 50
         initialSize: 20
         maxWait: 60000
@@ -87,12 +93,12 @@ spring:
         loginPassword: druid
     #    sharding:
     #      default-data-source-name: default-datasource
-    #      #需要拆分的表，可以设置多个  在 li_order 级别即可
+    #      #需要拆分的表，可以设置多个  在 sg_order 级别即可
     #      tables:
     #        #需要进行分表的逻辑表名
     #        li_order:
     #          #实际的表结点,下面代表的是li_order_为开头的所有表，如果能确定表的范围例如按月份分表，这里的写法是data2020.li_order_$->{2020..2021}_$->{01..12}  表示例如 li_order_2020_01 li_order_2020_03 li_order_2021_01
-    #          actual-data-nodes: data2020.li_order_$->{2019..2021}_$->{01..12}
+    #          actual-data-nodes: data2020.sg_order_$->{2019..2021}_$->{01..12}
     #          table-strategy:
     #            # 分表策略，根据创建日期
     #            standard:
@@ -266,55 +272,55 @@ lili:
     corePoolSize: 5
     maxPoolSize: 50
     queueCapacity: 50
-  data:
-    elasticsearch:
-      cluster-name: elasticsearch
-      cluster-nodes: 127.0.0.1:9200
-      index:
-        number-of-replicas: 0
-        number-of-shards: 3
-      index-prefix: lili
-      schema: http
+  #data:
+    #elasticsearch:
+      #cluster-name: elasticsearch
+      #cluster-nodes: 127.0.0.1:9200
+      #index:
+        #number-of-replicas: 0
+        #number-of-shards: 3
+      #index-prefix: lili
+      #schema: http
     #      account:
     #        username: elastic
     #        password: LiLiShopES
 
-    logstash:
-      server: 127.0.0.1:4560
-    rocketmq:
-      promotion-topic: lili_promotion_topic
-      promotion-group: lili_promotion_group
-      msg-ext-topic: lili_msg_topic
-      msg-ext-group: lili_msg_group
-      goods-topic: lili_goods_topic
-      goods-group: lili_goods_group
-      order-topic: lili_order_topic
-      order-group: lili_order_group
-      member-topic: lili_member_topic
-      member-group: lili_member_group
-      other-topic: lili_other_topic
-      other-group: lili_other_group
-      notice-topic: lili_notice_topic
-      notice-group: lili_notice_group
-      notice-send-topic: lili_send_notice_topic
-      notice-send-group: lili_send_notice_group
-      after-sale-topic: lili_after_sale_topic
-      after-sale-group: lili_after_sale_group
-rocketmq:
-  name-server: 127.0.0.1:9876
-  isVIPChannel: false
-  producer:
-    group: lili_group
-    send-message-timeout: 30000
+    #logstash:
+      #server: 127.0.0.1:4560
+    #rocketmq:
+      #promotion-topic: lili_promotion_topic
+      #promotion-group: lili_promotion_group
+      #msg-ext-topic: lili_msg_topic
+      #msg-ext-group: lili_msg_group
+      #goods-topic: lili_goods_topic
+      #goods-group: lili_goods_group
+      #order-topic: lili_order_topic
+      #order-group: lili_order_group
+      #member-topic: lili_member_topic
+      #member-group: lili_member_group
+      #other-topic: lili_other_topic
+      #other-group: lili_other_group
+      #notice-topic: lili_notice_topic
+      #notice-group: lili_notice_group
+      #notice-send-topic: lili_send_notice_topic
+      #notice-send-group: lili_send_notice_group
+      #after-sale-topic: lili_after_sale_topic
+      #after-sale-group: lili_after_sale_group
+#rocketmq:
+  #name-server: 127.0.0.1:9876
+  #isVIPChannel: false
+  #producer:
+    #group: lili_group
+    #send-message-timeout: 30000
 
-xxl:
-  job:
-    admin:
-      addresses: http://127.0.0.1:9001/xxl-job-admin
-    executor:
-      appname: xxl-job-executor-lilishop
-      address:
-      ip:
-      port: 8891
-      logpath: ./xxl-job/executor
-      logretentiondays: 7
+#xxl:
+  #job:
+    #admin:
+      #addresses: http://127.0.0.1:9001/xxl-job-admin
+    #executor:
+      #appname: xxl-job-executor-lilishop
+      #address:
+      #ip:
+      #port: 8891
+      #logpath: ./xxl-job/executor
+      #logretentiondays: 7

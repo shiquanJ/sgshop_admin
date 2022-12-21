@@ -16,7 +16,7 @@ import javax.validation.constraints.Size;
  * @since 2020/11/26 16:08
  */
 @Data
-@TableName("li_goods_unit")
+@TableName("sg_goods_unit")
 @ApiModel(value = "商品计量单位")
 public class GoodsUnit extends BaseEntity {
 

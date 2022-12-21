@@ -15,7 +15,7 @@ import lombok.Data;
  */
 @Data
 @ApiModel(value = "Commodity", description = "直播商品")
-@TableName("li_commodity")
+@TableName("sg_commodity")
 public class Commodity extends BaseEntity {
 
     @ApiModelProperty(value = "图片")

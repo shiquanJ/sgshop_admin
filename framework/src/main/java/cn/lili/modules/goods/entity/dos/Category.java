@@ -19,7 +19,7 @@ import java.util.Date;
  * @since 2020-02-18 15:18:56
  */
 @Data
-@TableName("li_category")
+@TableName("sg_category")
 @ApiModel(value = "商品分类")
 @AllArgsConstructor
 @NoArgsConstructor

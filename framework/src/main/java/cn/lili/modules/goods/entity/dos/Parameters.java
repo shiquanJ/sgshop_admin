@@ -21,7 +21,7 @@ import javax.validation.constraints.NotNull;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("li_parameters")
+@TableName("sg_parameters")
 @ApiModel(value = "商品参数")
 public class Parameters extends BaseIdEntity {
 

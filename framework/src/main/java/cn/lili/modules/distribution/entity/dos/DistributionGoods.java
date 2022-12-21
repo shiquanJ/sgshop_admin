@@ -30,7 +30,7 @@ import java.util.Map;
  */
 @Data
 @ApiModel(value = "分销商品")
-@TableName("li_distribution_goods")
+@TableName("sg_distribution_goods")
 @NoArgsConstructor
 public class DistributionGoods extends BaseIdEntity {
 

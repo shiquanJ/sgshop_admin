@@ -23,7 +23,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @ApiModel(value = "会员商品收藏")
-@TableName("li_goods_collection")
+@TableName("sg_goods_collection")
 public class GoodsCollection extends BaseIdEntity {
 
     @CreatedDate

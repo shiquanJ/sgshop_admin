@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
  **/
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("li_points_goods")
+@TableName("sg_points_goods")
 @ApiModel(value = "积分商品")
 @AllArgsConstructor
 @NoArgsConstructor

@@ -20,7 +20,7 @@ import java.util.Date;
  * @since 2020/11/26 19:32
  */
 @Data
-@TableName("li_purchase_order_item")
+@TableName("sg_purchase_order_item")
 @ApiModel(value = "采购单子内容")
 public class PurchaseOrderItem extends BaseIdEntity {
 

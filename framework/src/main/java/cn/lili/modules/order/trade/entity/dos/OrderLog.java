@@ -24,7 +24,7 @@ import java.util.Date;
  * @since 2020-03-25 2:30 下午
  */
 @Data
-@TableName("li_order_log")
+@TableName("sg_order_log")
 @ApiModel(value = "订单日志")
 @NoArgsConstructor
 public class OrderLog extends BaseIdEntity {

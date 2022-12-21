@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
  * @since 2020/11/19 12:18
  */
 @Data
-@TableName("li_clerk_role")
+@TableName("sg_clerk_role")
 @ApiModel(value = "用户角色")
 @Builder
 @NoArgsConstructor

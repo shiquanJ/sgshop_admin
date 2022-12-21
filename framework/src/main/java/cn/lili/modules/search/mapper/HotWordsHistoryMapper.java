@@ -26,7 +26,7 @@ public interface HotWordsHistoryMapper extends BaseMapper<HotWordsHistory> {
      * @param queryWrapper 查询条件
      * @return 订单统计列表
      */
-    @Select("SELECT sum(score) as score,keywords FROM li_hot_words_history " +" ${ew.customSqlSegment}")
+    @Select("SELECT sum(score) as score,keywords FROM sg_hot_words_history " +" ${ew.customSqlSegment}")
     List<HotWordsHistory> statistics(@Param(Constants.WRAPPER) Wrapper queryWrapper);
 
 }

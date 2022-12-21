@@ -18,7 +18,7 @@ public interface MemberPointsHistoryMapper extends BaseMapper<MemberPointsHistor
      * @param pointType 积分类型
      * @return
      */
-    @Select("SELECT SUM( variable_point ) FROM li_member_points_history WHERE point_type = #{pointType}")
+    @Select("SELECT SUM( variable_point ) FROM sg_member_points_history WHERE point_type = #{pointType}")
     Long getALLMemberPointsHistoryVO(String pointType);
 
     /**
@@ -28,7 +28,7 @@ public interface MemberPointsHistoryMapper extends BaseMapper<MemberPointsHistor
      * @param memberId  会员ID
      * @return 积分数量
      */
-    @Select("SELECT SUM( variable_point ) FROM li_member_points_history WHERE point_type = #{pointType} AND member_id=#{memberId}")
+    @Select("SELECT SUM( variable_point ) FROM sg_member_points_history WHERE point_type = #{pointType} AND member_id=#{memberId}")
     Long getMemberPointsHistoryVO(String pointType, String memberId);
 
 

@@ -24,7 +24,7 @@ import javax.validation.constraints.NotNull;
  * @since 2020-02-25 14:10:16
  */
 @Data
-@TableName("li_member_evaluation")
+@TableName("sg_member_evaluation")
 @ApiModel(value = "会员商品评价")
 @NoArgsConstructor
 public class MemberEvaluation extends BaseEntity {

@@ -27,7 +27,7 @@ import java.util.Date;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("li_feedback")
+@TableName("sg_feedback")
 @ApiModel(value = "意见反馈")
 public class Feedback extends BaseIdEntity {
 

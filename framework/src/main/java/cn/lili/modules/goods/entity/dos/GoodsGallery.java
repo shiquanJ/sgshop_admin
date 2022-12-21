@@ -16,7 +16,7 @@ import org.springframework.data.annotation.CreatedBy;
  * @since 2020-02-23 9:14:33
  */
 @Data
-@TableName("li_goods_gallery")
+@TableName("sg_goods_gallery")
 @ApiModel(value = "商品相册")
 public class GoodsGallery extends BaseIdEntity {
 

@@ -13,7 +13,7 @@ import lombok.Data;
  * @since 2021/1/30 4:13 下午
  */
 @Data
-@TableName("li_verification_source")
+@TableName("sg_verification_source")
 @ApiModel(value = "验证码资源维护")
 public class VerificationSource extends BaseEntity {
 

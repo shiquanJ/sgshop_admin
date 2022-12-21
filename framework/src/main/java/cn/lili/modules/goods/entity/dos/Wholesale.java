@@ -13,7 +13,7 @@ import lombok.EqualsAndHashCode;
  **/
 @Data
 @EqualsAndHashCode(callSuper = true)
-@TableName("li_wholesale")
+@TableName("sg_wholesale")
 @ApiModel(value = "批发商品")
 public class Wholesale extends BaseIdEntity {
 

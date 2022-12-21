@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
  * @since 2020/11/17 7:34 下午
  */
 @Data
-@TableName("li_trade")
+@TableName("sg_trade")
 @ApiModel(value = "交易")
 @NoArgsConstructor
 public class Trade extends BaseEntity {

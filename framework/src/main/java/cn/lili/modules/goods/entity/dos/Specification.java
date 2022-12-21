@@ -18,7 +18,7 @@ import javax.validation.constraints.Size;
  * @since 2020-02-18 15:18:56
  */
 @Data
-@TableName("li_specification")
+@TableName("sg_specification")
 @ApiModel(value = "规格项")
 public class Specification extends BaseIdEntity {
 

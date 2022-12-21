@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
  * @since 2020-02-25 14:10:16
  */
 @Data
-@TableName("li_setting")
+@TableName("sg_setting")
 @ApiModel(value = "配置")
 @NoArgsConstructor
 public class Setting extends BaseEntity {

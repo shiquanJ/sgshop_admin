@@ -19,7 +19,7 @@ import java.math.BigDecimal;
  * @since 2020-02-18 15:18:56
  */
 @Data
-@TableName("li_store_goods_label")
+@TableName("sg_store_goods_label")
 @ApiModel(value = "店铺商品分类")
 public class StoreGoodsLabel extends BaseEntity {
 

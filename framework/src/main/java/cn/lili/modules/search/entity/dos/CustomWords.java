@@ -19,7 +19,7 @@ import javax.validation.constraints.NotEmpty;
  * @since 2020/10/15
  **/
 @Data
-@TableName("li_custom_words")
+@TableName("sg_custom_words")
 @ApiModel(value = "自定义分词")
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor

@@ -18,7 +18,7 @@ import java.math.BigDecimal;
  * @since 2020-03-19 10:44 上午
  **/
 @Data
-@TableName("li_points_goods_category")
+@TableName("sg_points_goods_category")
 @ApiModel(value = "积分商品分类")
 @AllArgsConstructor
 @NoArgsConstructor

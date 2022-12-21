@@ -14,7 +14,7 @@ import lombok.Data;
  * @since 2020-02-25 14:10:16
  */
 @Data
-@TableName("li_member_notice")
+@TableName("sg_member_notice")
 @ApiModel(value = "会员站内信")
 public class MemberNotice extends BaseEntity {
 

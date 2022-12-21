@@ -15,7 +15,7 @@ import lombok.Data;
  * @since 2020/12/10 17:42
  */
 @Data
-@TableName("li_special")
+@TableName("sg_special")
 @ApiModel(value = "专题活动")
 public class Special extends BaseEntity {
 

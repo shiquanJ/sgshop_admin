@@ -14,7 +14,7 @@ import lombok.Data;
  * @since 2020/11/19 12:18
  */
 @Data
-@TableName("li_store_menu_role")
+@TableName("sg_store_menu_role")
 @ApiModel(value = "店铺角色权限")
 public class StoreMenuRole extends BaseEntity {
 

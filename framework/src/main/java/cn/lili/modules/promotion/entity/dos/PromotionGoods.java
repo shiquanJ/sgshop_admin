@@ -27,7 +27,7 @@ import java.util.Date;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("li_promotion_goods")
+@TableName("sg_promotion_goods")
 @ApiModel(value = "促销商品")
 @NoArgsConstructor
 public class PromotionGoods extends BaseEntity {

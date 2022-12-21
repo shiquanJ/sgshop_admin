@@ -19,7 +19,7 @@ import java.util.Date;
  * @author Chopper
  */
 @Data
-@TableName("li_connect")
+@TableName("sg_connect")
 @ApiModel(value = "联合登陆")
 @NoArgsConstructor
 public class Connect extends BaseIdEntity {

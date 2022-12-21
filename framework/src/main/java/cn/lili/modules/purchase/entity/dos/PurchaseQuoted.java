@@ -21,7 +21,7 @@ import java.util.Date;
  */
 @Data
 @ApiModel(value = "供求单报价")
-@TableName("li_purchase_quoted")
+@TableName("sg_purchase_quoted")
 public class PurchaseQuoted extends BaseIdEntity {
 
     @CreatedDate

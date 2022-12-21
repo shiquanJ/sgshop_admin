@@ -17,7 +17,7 @@ import java.util.Date;
  * @since 2020-02-25 14:10:16
  */
 @Data
-@TableName("li_member_notice_log")
+@TableName("sg_member_notice_log")
 @ApiModel(value = "会员消息")
 public class MemberNoticeLog extends BaseEntity {
 

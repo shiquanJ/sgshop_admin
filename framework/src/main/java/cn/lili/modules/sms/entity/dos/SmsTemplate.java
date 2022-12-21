@@ -14,7 +14,7 @@ import lombok.Data;
  * @since 2021/1/30 4:13 下午
  */
 @Data
-@TableName("li_sms_template")
+@TableName("sg_sms_template")
 @ApiModel(value = "短信模板")
 public class SmsTemplate extends BaseIdEntity {
 

@@ -22,7 +22,7 @@ import java.util.Date;
  * @since 2021/1/30 4:13 下午
  */
 @Data
-@TableName("li_sms_reach")
+@TableName("sg_sms_reach")
 @ApiModel(value = "短信任务")
 @EqualsAndHashCode(callSuper = true)
 public class SmsReach extends BaseIdEntity {

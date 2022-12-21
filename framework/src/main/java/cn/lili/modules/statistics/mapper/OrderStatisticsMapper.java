@@ -26,7 +26,7 @@ public interface OrderStatisticsMapper extends BaseMapper<Order> {
      * @param queryWrapper 查询条件
      * @return 订单统计列表
      */
-    @Select("SELECT DATE_FORMAT(create_time,'%Y-%m-%d') AS create_time,sum(flow_price) AS price FROM li_order " +
+    @Select("SELECT DATE_FORMAT(create_time,'%Y-%m-%d') AS create_time,sum(flow_price) AS price FROM sg_order " +
             " ${ew.customSqlSegment}")
     List<OrderStatisticsDataVO> getOrderStatisticsData(@Param(Constants.WRAPPER) Wrapper queryWrapper);
 
@@ -36,7 +36,7 @@ public interface OrderStatisticsMapper extends BaseMapper<Order> {
      * @param queryWrapper 查询条件
      * @return 订单数量
      */
-    @Select("SELECT count(0) FROM li_order ${ew.customSqlSegment}")
+    @Select("SELECT count(0) FROM sg_order ${ew.customSqlSegment}")
     Integer count(@Param(Constants.WRAPPER) Wrapper queryWrapper);
 
     /**
@@ -57,7 +57,7 @@ public interface OrderStatisticsMapper extends BaseMapper<Order> {
             ",GROUP_CONCAT(oi.comment_status) as group_comment_status" +
             ",GROUP_CONCAT(oi.sn) as group_order_items_sn " +
             ",GROUP_CONCAT(oi.goods_price) as group_goods_price " +
-            " FROM li_order o INNER JOIN li_order_item AS oi on o.sn = oi.order_sn ${ew.customSqlSegment} ")
+            " FROM sg_order o INNER JOIN sg_order_item AS oi on o.sn = oi.order_sn ${ew.customSqlSegment} ")
     IPage<OrderSimpleVO> queryByParams(IPage<OrderSimpleVO> page, @Param(Constants.WRAPPER) Wrapper<OrderSimpleVO> queryWrapper);
 
 }

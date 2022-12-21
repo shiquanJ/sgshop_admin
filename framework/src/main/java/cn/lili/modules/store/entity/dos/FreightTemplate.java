@@ -16,7 +16,7 @@ import javax.validation.constraints.NotEmpty;
  * @since 2020/11/17 4:27 下午
  */
 @Data
-@TableName("li_freight_template")
+@TableName("sg_freight_template")
 @ApiModel(value = "运费模板")
 public class FreightTemplate extends BaseEntity {
 

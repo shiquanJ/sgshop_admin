@@ -14,7 +14,7 @@ import lombok.Data;
  * @since 2021/1/30 4:13 下午
  */
 @Data
-@TableName("li_sms_sign")
+@TableName("sg_sms_sign")
 @ApiModel(value = "短信签名")
 public class SmsSign extends BaseIdEntity {
 

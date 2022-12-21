@@ -19,7 +19,7 @@ import javax.validation.constraints.NotNull;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("li_category_parameter_group")
+@TableName("sg_category_parameter_group")
 @ApiModel(value = "分类绑定参数组")
 public class CategoryParameterGroup extends BaseEntity {
 

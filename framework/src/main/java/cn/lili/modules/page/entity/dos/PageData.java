@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
  * @since 2020/12/10 17:42
  */
 @Data
-@TableName("li_page_data")
+@TableName("sg_page_data")
 @ApiModel(value = "页面数据DO")
 @NoArgsConstructor
 public class PageData extends BaseEntity {

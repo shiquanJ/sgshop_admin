@@ -18,7 +18,7 @@ import javax.validation.constraints.NotNull;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@TableName("li_coupon_activity")
+@TableName("sg_coupon_activity")
 @ApiModel(value = "优惠券活动实体类")
 public class CouponActivity extends BasePromotions {
 

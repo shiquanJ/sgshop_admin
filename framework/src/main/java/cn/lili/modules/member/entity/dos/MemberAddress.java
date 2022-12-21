@@ -19,7 +19,7 @@ import javax.validation.constraints.NotEmpty;
  * @since 2020-02-25 14:10:16
  */
 @Data
-@TableName("li_member_address")
+@TableName("sg_member_address")
 @ApiModel(value = "会员地址")
 public class MemberAddress extends BaseEntity {
 

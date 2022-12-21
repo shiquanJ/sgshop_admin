@@ -15,7 +15,7 @@ import org.hibernate.validator.constraints.Length;
  * @since 2020/11/19 11:42
  */
 @Data
-@TableName("li_admin_user")
+@TableName("sg_admin_user")
 @ApiModel(value = "管理员")
 public class AdminUser extends BaseEntity {
 

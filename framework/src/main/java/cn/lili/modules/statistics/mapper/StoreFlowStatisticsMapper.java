@@ -29,7 +29,7 @@ public interface StoreFlowStatisticsMapper extends BaseMapper<StoreFlow> {
      * @param queryWrapper 查询条件
      * @return 商品统计列表
      */
-    @Select("SELECT goods_id,goods_name,SUM(final_price) AS price,SUM(num) AS num FROM li_store_flow ${ew.customSqlSegment}")
+    @Select("SELECT goods_id,goods_name,SUM(final_price) AS price,SUM(num) AS num FROM sg_store_flow ${ew.customSqlSegment}")
     List<GoodsStatisticsDataVO> getGoodsStatisticsData(IPage<GoodsStatisticsDataVO> page, @Param(Constants.WRAPPER) Wrapper<GoodsStatisticsDataVO> queryWrapper);
 
     /**
@@ -38,7 +38,7 @@ public interface StoreFlowStatisticsMapper extends BaseMapper<StoreFlow> {
      * @param queryWrapper 查询条件
      * @return 分类统计列表
      */
-    @Select("SELECT category_id,category_name,SUM(price) AS price,SUM(num) AS num FROM li_store_flow ${ew.customSqlSegment}")
+    @Select("SELECT category_id,category_name,SUM(price) AS price,SUM(num) AS num FROM sg_store_flow ${ew.customSqlSegment}")
     List<CategoryStatisticsDataVO> getCateGoryStatisticsData(@Param(Constants.WRAPPER) Wrapper<CategoryStatisticsDataVO> queryWrapper);
 
 
@@ -49,7 +49,7 @@ public interface StoreFlowStatisticsMapper extends BaseMapper<StoreFlow> {
      * @param queryWrapper 查询参数
      * @return 店铺统计列表
      */
-    @Select("SELECT store_id AS storeId,store_name AS storeName,SUM(final_price) AS price,SUM(num) AS num FROM li_store_flow ${ew.customSqlSegment}")
+    @Select("SELECT store_id AS storeId,store_name AS storeName,SUM(final_price) AS price,SUM(num) AS num FROM sg_store_flow ${ew.customSqlSegment}")
     List<StoreStatisticsDataVO> getStoreStatisticsData(IPage<GoodsStatisticsDataVO> page, @Param(Constants.WRAPPER) Wrapper<GoodsStatisticsDataVO> queryWrapper);
 
     /**
@@ -60,7 +60,7 @@ public interface StoreFlowStatisticsMapper extends BaseMapper<StoreFlow> {
      * @param endTime   结束时间
      * @return 付款人数
      */
-    @Select("SELECT count(0) AS num FROM (SELECT count(0) FROM li_store_flow " +
+    @Select("SELECT count(0) AS num FROM (SELECT count(0) FROM sg_store_flow " +
             " where store_id = #{storeId} and flow_type='PAY' and create_time >=#{startTime} and create_time < #{endTime}" +
             " GROUP BY member_id) t")
     Long countPayersByStore(String storeId, Date startTime, Date endTime);
@@ -72,7 +72,7 @@ public interface StoreFlowStatisticsMapper extends BaseMapper<StoreFlow> {
      * @param endTime   结束时间
      * @return 付款人数
      */
-    @Select("SELECT count(0) AS num FROM (SELECT count(0) FROM li_store_flow " +
+    @Select("SELECT count(0) AS num FROM (SELECT count(0) FROM sg_store_flow " +
             " where  flow_type='PAY' and create_time >=#{startTime} and create_time < #{endTime}" +
             " GROUP BY member_id) t")
     Long countPayers(Date startTime, Date endTime);

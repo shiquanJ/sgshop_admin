@@ -14,6 +14,6 @@ public interface WechatMessageMapper extends BaseMapper<WechatMessage> {
     /**
      * 删除微信消息
      */
-    @Delete("delete from li_wechat_message")
+    @Delete("delete from sg_wechat_message")
     void deleteAll();
 }

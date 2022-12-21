@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
  * @since 2020/12/5
  **/
 @Data
-@TableName("li_order_complaint_communication")
+@TableName("sg_order_complaint_communication")
 @ApiModel(value = "订单交易投诉通信")
 @AllArgsConstructor
 @NoArgsConstructor

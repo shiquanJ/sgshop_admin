@@ -12,7 +12,7 @@ import lombok.Data;
  * @author Chopper
  */
 @Data
-@TableName("li_short_link")
+@TableName("sg_short_link")
 @ApiModel(value = "短链接/暂时只用于小程序二维码业务")
 public class ShortLink extends BaseIdEntity {
 

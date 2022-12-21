@@ -24,7 +24,7 @@ import java.util.Date;
  * @since 2020-02-25 14:10:16
  */
 @Data
-@TableName("li_member_points_history")
+@TableName("sg_member_points_history")
 @ApiModel(value = "会员积分历史")
 public class MemberPointsHistory extends BaseIdEntity {
 

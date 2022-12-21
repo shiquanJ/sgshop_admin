@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @ApiModel(value = "分销商已选择分销商品")
-@TableName("li_distribution_selected_goods")
+@TableName("sg_distribution_selected_goods")
 @NoArgsConstructor
 public class DistributionSelectedGoods extends BaseIdEntity {
 

@@ -17,7 +17,7 @@ import javax.validation.constraints.NotEmpty;
  * @since 2020/12/8 9:46
  */
 @Data
-@TableName("li_notice_message")
+@TableName("sg_notice_message")
 @ApiModel(value = "通知类消息模板")
 public class NoticeMessage extends BaseEntity {
 
