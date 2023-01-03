@@ -20,8 +20,11 @@ public class MemberAddDTO {
     @ApiModelProperty(value = "会员用户名")
     private String username;
 
-    @ApiModelProperty(value = "会员密码")
+    @ApiModelProperty(value = "会员密码(加密后)")
     private String password;
+
+    @ApiModelProperty(value = "会员密码(加密前)")
+    private String pwd;
 
     @NotEmpty(message = "手机号码不能为空")
     @ApiModelProperty(value = "手机号码", required = true)

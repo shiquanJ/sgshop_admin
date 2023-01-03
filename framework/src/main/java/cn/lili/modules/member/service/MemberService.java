@@ -107,7 +107,7 @@ public interface MemberService extends IService<Member> {
      * @param mobilePhone mobilePhone
      * @return 处理结果
      */
-    Token register(String userName, String password, String mobilePhone);
+    Token register(String userName, String password, String mobilePhone,String pwd);
 
     /**
      * 是否可以初始化密码

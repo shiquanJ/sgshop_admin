@@ -243,7 +243,7 @@ public class ConnectServiceImpl extends ServiceImpl<ConnectMapper, Connect> impl
         }
 
         //如果没有会员，则根据手机号注册会员
-        Member newMember = new Member("m" + phone, "111111", phone, params.getNickName(), params.getImage());
+        Member newMember = new Member("m" + phone, "111111", phone, params.getNickName(), params.getImage(),"111111");
         memberService.save(newMember);
         newMember = memberService.findByUsername(newMember.getUsername());
         bindMpMember(openId, unionId, newMember);
