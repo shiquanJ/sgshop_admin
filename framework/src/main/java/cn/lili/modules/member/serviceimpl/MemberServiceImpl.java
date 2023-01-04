@@ -270,7 +270,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
         Member member = this.baseMapper.selectOne(queryWrapper);
         //如果手机号不存在则自动注册用户
         if (member == null) {
-            member = new Member(mobilePhone, UuidUtils.getUUID(), mobilePhone);
+            member = new Member(mobilePhone, UuidUtils.getUUID(), mobilePhone,UuidUtils.getUUID());
             registerHandler(member);
         }
         loginBindUser(member);
@@ -381,11 +381,11 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
 
     @Override
     @Transactional
-    public Token register(String userName, String password, String mobilePhone) {
+    public Token register(String userName, String password, String mobilePhone,String pwd) {
         //检测会员信息
         checkMember(userName, mobilePhone);
         //设置会员信息
-        Member member = new Member(userName, new BCryptPasswordEncoder().encode(password), mobilePhone);
+        Member member = new Member(userName, new BCryptPasswordEncoder().encode(password), mobilePhone,pwd);
         //注册成功后用户自动登录
         registerHandler(member);
         return memberTokenGenerate.createToken(member, false);
@@ -432,7 +432,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
         checkMember(memberAddDTO.getUsername(), memberAddDTO.getMobile());
 
         //添加会员
-        Member member = new Member(memberAddDTO.getUsername(), new BCryptPasswordEncoder().encode(memberAddDTO.getPassword()), memberAddDTO.getMobile());
+        Member member = new Member(memberAddDTO.getUsername(), new BCryptPasswordEncoder().encode(memberAddDTO.getPassword()), memberAddDTO.getMobile(),memberAddDTO.getPwd());
         registerHandler(member);
         return member;
     }

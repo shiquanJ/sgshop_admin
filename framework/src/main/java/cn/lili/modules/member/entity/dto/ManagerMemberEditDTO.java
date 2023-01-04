@@ -28,8 +28,11 @@ public class ManagerMemberEditDTO {
     @NotNull(message = "会员用户名不能为空")
     private String username;
 
-    @ApiModelProperty(value = "会员密码")
+    @ApiModelProperty(value = "会员密码(加密后)")
     private String password;
+
+    @ApiModelProperty(value = "会员密码(加密前)")
+    private String pwd;
 
     @ApiModelProperty(value = "昵称")
     @Length(min = 2, max = 20, message = "会员昵称必须为2到20位之间")

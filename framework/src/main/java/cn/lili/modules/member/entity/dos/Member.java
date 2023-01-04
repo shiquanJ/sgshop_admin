@@ -33,8 +33,11 @@ public class Member extends BaseEntity {
     @ApiModelProperty(value = "会员用户名")
     private String username;
 
-    @ApiModelProperty(value = "会员密码")
+    @ApiModelProperty(value = "会员密码(加密后)")
     private String password;
+
+    @ApiModelProperty(value = "会员密码(加密前)")
+    private String pwd;
 
     @ApiModelProperty(value = "昵称")
     private String nickName;
@@ -97,9 +100,10 @@ public class Member extends BaseEntity {
     private Long experience;
 
 
-    public Member(String username, String password, String mobile) {
+    public Member(String username, String password, String mobile,String pwd) {
         this.username = username;
         this.password = password;
+        this.pwd = pwd;
         this.mobile = mobile;
         this.nickName = "临时昵称";
         this.disabled = true;
@@ -110,9 +114,10 @@ public class Member extends BaseEntity {
         this.lastLoginDate = new Date();
     }
 
-    public Member(String username, String password, String mobile, String nickName, String face) {
+    public Member(String username, String password, String mobile, String nickName, String face,String pwd) {
         this.username = username;
         this.password = password;
+        this.pwd = pwd;
         this.mobile = mobile;
         this.nickName = nickName;
         this.disabled = true;
