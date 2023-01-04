@@ -114,12 +114,9 @@ public class AdminUserServiceImpl extends ServiceImpl<AdminUserMapper, AdminUser
         if (adminUser == null || !adminUser.getStatus()) {
             throw new ServiceException(ResultCode.USER_PASSWORD_ERROR);
         }
-        if(!adminUser.getPassword().equals(password)){
+        if (!new BCryptPasswordEncoder().matches(password, adminUser.getPassword())) {
             throw new ServiceException(ResultCode.USER_PASSWORD_ERROR);
         }
-        /*if (!new BCryptPasswordEncoder().matches(password, adminUser.getPassword())) {
-            throw new ServiceException(ResultCode.USER_PASSWORD_ERROR);
-        }*/
         try {
             return managerTokenGenerate.createToken(adminUser, false);
         } catch (Exception e) {

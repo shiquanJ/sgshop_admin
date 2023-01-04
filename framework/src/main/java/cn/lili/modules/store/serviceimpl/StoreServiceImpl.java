@@ -9,6 +9,7 @@ import cn.lili.common.exception.ServiceException;
 import cn.lili.common.security.AuthUser;
 import cn.lili.common.security.context.UserContext;
 import cn.lili.common.utils.BeanUtil;
+import cn.lili.common.utils.SnowFlake;
 import cn.lili.common.vo.PageVO;
 import cn.lili.modules.goods.service.GoodsService;
 import cn.lili.modules.member.entity.dos.Clerk;
@@ -122,7 +123,7 @@ public class StoreServiceImpl extends ServiceImpl<StoreMapper, Store> implements
         memberService.update(new LambdaUpdateWrapper<Member>()
                 .eq(Member::getId, member.getId())
                 .set(Member::getHaveStore, true)
-                .set(Member::getStoreId, store.getId()));
+                .set(Member::getStoreId, SnowFlake.getIdStr()));
         return store;
 
     }

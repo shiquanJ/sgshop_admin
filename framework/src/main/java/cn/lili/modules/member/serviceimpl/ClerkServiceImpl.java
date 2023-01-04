@@ -56,9 +56,9 @@ public class ClerkServiceImpl extends ServiceImpl<ClerkMapper, Clerk> implements
     public IPage<ClerkVO> clerkForPage(PageVO page, ClerkQueryDTO clerkQueryDTO) {
 
         QueryWrapper<ClerkVO> clerkVOQueryWrapper = new QueryWrapper<>();
-        clerkVOQueryWrapper.eq("li_clerk.store_id", UserContext.getCurrentUser().getStoreId());
-        clerkVOQueryWrapper.eq(StringUtils.isNotEmpty(clerkQueryDTO.getDepartmentId()), "li_clerk.department_id", clerkQueryDTO.getDepartmentId());
-        clerkVOQueryWrapper.like(StringUtils.isNotEmpty(clerkQueryDTO.getClerkName()), "li_clerk.clerk_name", clerkQueryDTO.getClerkName());
+        clerkVOQueryWrapper.eq("sg_clerk.store_id", UserContext.getCurrentUser().getStoreId());
+        clerkVOQueryWrapper.eq(StringUtils.isNotEmpty(clerkQueryDTO.getDepartmentId()), "sg_clerk.department_id", clerkQueryDTO.getDepartmentId());
+        clerkVOQueryWrapper.like(StringUtils.isNotEmpty(clerkQueryDTO.getClerkName()), "sg_clerk.clerk_name", clerkQueryDTO.getClerkName());
         clerkVOQueryWrapper.like(StringUtils.isNotEmpty(clerkQueryDTO.getMobile()), "m.mobile", clerkQueryDTO.getMobile());
         IPage<ClerkVO> clerkPage = this.baseMapper.selectClerkPage(PageUtil.initPage(page), clerkVOQueryWrapper);
 

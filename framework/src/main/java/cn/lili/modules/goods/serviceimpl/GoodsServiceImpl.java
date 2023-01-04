@@ -582,7 +582,7 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
      */
     private void checkGoods(Goods goods) {
         //判断商品类型
-        switch (goods.getGoodsType()) {
+        /*switch (goods.getGoodsType()) {
             case "PHYSICAL_GOODS":
                 if ("0".equals(goods.getTemplateId())) {
                     throw new ServiceException(ResultCode.PHYSICAL_GOODS_NEED_TEMP);
@@ -595,7 +595,7 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
                 break;
             default:
                 throw new ServiceException(ResultCode.GOODS_TYPE_ERROR);
-        }
+        }*/
         //检查商品是否存在--修改商品时使用
         if (goods.getId() != null) {
             this.checkExist(goods.getId());

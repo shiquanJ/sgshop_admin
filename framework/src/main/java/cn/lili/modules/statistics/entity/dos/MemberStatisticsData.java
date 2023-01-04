@@ -16,7 +16,7 @@ import java.util.Date;
  * @since 2020/11/17 7:34 下午
  */
 @Data
-@TableName("li_member_statistics_data")
+@TableName("sg_member_statistics_data")
 @ApiModel(value = "会员统计")
 public class MemberStatisticsData extends BaseIdEntity {
 

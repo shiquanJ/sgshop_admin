@@ -88,52 +88,52 @@ public class StoreDetail extends BaseIdEntity {
     @ApiModelProperty(value = "联系人电话")
     private String linkPhone;
 
-    @Size(min = 18, max = 18, message = "营业执照长度为18位字符")
-    @ApiModelProperty(value = "营业执照号")
+    /*@Size(min = 18, max = 18, message = "营业执照长度为18位字符")
+    @ApiModelProperty(value = "营业执照号")*/
     private String licenseNum;
 
-    @ApiModelProperty(value = "法定经营范围")
+//    @ApiModelProperty(value = "法定经营范围")
     private String scope;
 
-    @NotBlank(message = "营业执照电子版不能为空")
-    @ApiModelProperty(value = "营业执照电子版")
+//    @NotBlank(message = "营业执照电子版不能为空")
+//    @ApiModelProperty(value = "营业执照电子版")
     private String licencePhoto;
 
-    @NotBlank(message = "法人姓名不能为空")
-    @Size(min = 2, max = 20, message = "法人姓名长度为2-20位字符")
+//    @NotBlank(message = "法人姓名不能为空")
+//    @Size(min = 2, max = 20, message = "法人姓名长度为2-20位字符")
     @ApiModelProperty(value = "法人姓名")
     private String legalName;
 
-    @NotBlank(message = "法人身份证不能为空")
-    @Size(min = 18, max = 18, message = "法人身份证号长度为18位")
+//    @NotBlank(message = "法人身份证不能为空")
+//    @Size(min = 18, max = 18, message = "法人身份证号长度为18位")
     @ApiModelProperty(value = "法人身份证")
     private String legalId;
 
-    @NotBlank(message = "法人身份证不能为空")
-    @ApiModelProperty(value = "法人身份证照片")
+//    @NotBlank(message = "法人身份证不能为空")
+//    @ApiModelProperty(value = "法人身份证照片")
     private String legalPhoto;
 
-    @Size(min = 1, max = 200, message = "结算银行开户行名称长度为1-200位")
-    @NotBlank(message = "结算银行开户行名称不能为空")
+//    @Size(min = 1, max = 200, message = "结算银行开户行名称长度为1-200位")
+//    @NotBlank(message = "结算银行开户行名称不能为空")
     @ApiModelProperty(value = "结算银行开户行名称")
     private String settlementBankAccountName;
 
-    @Size(min = 1, max = 200, message = "结算银行开户账号长度为1-200位")
-    @NotBlank(message = "结算银行开户账号不能为空")
+//    @Size(min = 1, max = 200, message = "结算银行开户账号长度为1-200位")
+//    @NotBlank(message = "结算银行开户账号不能为空")
     @ApiModelProperty(value = "结算银行开户账号")
     private String settlementBankAccountNum;
 
-    @Size(min = 1, max = 200, message = "结算银行开户支行名称长度为1-200位")
-    @NotBlank(message = "结算银行开户支行名称不能为空")
+//    @Size(min = 1, max = 200, message = "结算银行开户支行名称长度为1-200位")
+//    @NotBlank(message = "结算银行开户支行名称不能为空")
     @ApiModelProperty(value = "结算银行开户支行名称")
     private String settlementBankBranchName;
 
-    @Size(min = 1, max = 50, message = "结算银行支行联行号长度为1-200位")
-    @NotBlank(message = "结算银行支行联行号不能为空")
+//    @Size(min = 1, max = 50, message = "结算银行支行联行号长度为1-200位")
+//    @NotBlank(message = "结算银行支行联行号不能为空")
     @ApiModelProperty(value = "结算银行支行联行号")
     private String settlementBankJointName;
 
-    @NotBlank(message = "店铺经营类目不能为空")
+//    @NotBlank(message = "店铺经营类目不能为空")
     @ApiModelProperty(value = "店铺经营类目")
     private String goodsManagementCategory;
 

@@ -61,11 +61,15 @@ public class AdminUserManagerController {
     public ResultMessage<Token> login(@NotNull(message = "用户名不能为空") @RequestParam String username,
                                       @NotNull(message = "密码不能为空") @RequestParam String password,
                                       @RequestHeader String uuid) {
-        if (verificationService.check(uuid, VerificationEnums.LOGIN)) {
+        /*if (verificationService.check(uuid, VerificationEnums.LOGIN)) {
             return ResultUtil.data(adminUserService.login(username, password));
         } else {
             throw new ServiceException(ResultCode.VERIFICATION_ERROR);
-        }
+        }*/
+        Token login = adminUserService.login(username, password);
+        System.out.println("accessToken::"+login.getAccessToken());
+        System.out.println("refreshToken::"+login.getRefreshToken());
+        return ResultUtil.data(login);
     }
 
     @ApiOperation(value = "注销接口")

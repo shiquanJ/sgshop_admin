@@ -177,7 +177,7 @@ public class Goods extends BaseEntity {
         this.grade = 100D;
 
         //循环sku，判定sku是否有效
-        for (Map<String, Object> sku : goodsOperationDTO.getSkuList()) {
+        /*for (Map<String, Object> sku : goodsOperationDTO.getSkuList()) {
             //判定参数不能为空
             if (!sku.containsKey("sn") || sku.get("sn") == null) {
                 throw new ServiceException(ResultCode.GOODS_SKU_SN_ERROR);
@@ -202,7 +202,7 @@ public class Goods extends BaseEntity {
             });
 
 
-        }
+        }*/
     }
 
     public Goods(DraftGoodsDTO goodsDTO) {
