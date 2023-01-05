@@ -69,11 +69,13 @@ public class StoreDetailServiceImpl extends ServiceImpl<StoreDetailMapper, Store
 
     @Override
     public StoreDetailVO getStoreDetailVO(String storeId) {
-        StoreDetailVO storeDetailVO = (StoreDetailVO) cache.get(CachePrefix.STORE.getPrefix() + storeId);
+        /*StoreDetailVO storeDetailVO = (StoreDetailVO) cache.get(CachePrefix.STORE.getPrefix() + storeId);
         if (storeDetailVO == null) {
             storeDetailVO = this.baseMapper.getStoreDetail(storeId);
             cache.put(CachePrefix.STORE.getPrefix() + storeId, storeDetailVO, 7200L);
-        }
+        }*/
+        StoreDetailVO storeDetailVO = this.baseMapper.getStoreDetail(storeId);
+        cache.put(CachePrefix.STORE.getPrefix() + storeId, storeDetailVO, 7200L);
         return storeDetailVO;
     }
 

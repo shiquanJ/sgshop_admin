@@ -4,6 +4,8 @@ import cn.hutool.core.lang.Snowflake;
 import cn.hutool.core.util.IdUtil;
 import lombok.extern.slf4j.Slf4j;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -50,6 +52,11 @@ public class SnowFlake {
     }
 
     public static String getIdStr() {
-        return snowflake.nextId() + "";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        Date date = new Date();
+        String format = sdf.format(date);
+        long time = date.getTime();
+        System.out.println("ID::"+format+time);
+        return format+time;
     }
 }
