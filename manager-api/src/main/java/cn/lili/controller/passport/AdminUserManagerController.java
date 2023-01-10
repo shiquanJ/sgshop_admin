@@ -25,6 +25,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.DigestUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -66,7 +67,8 @@ public class AdminUserManagerController {
         } else {
             throw new ServiceException(ResultCode.VERIFICATION_ERROR);
         }*/
-        Token login = adminUserService.login(username, password);
+        String md5password = DigestUtils.md5DigestAsHex(password.getBytes());
+        Token login = adminUserService.login(username, md5password);
         System.out.println("accessToken::"+login.getAccessToken());
         System.out.println("refreshToken::"+login.getRefreshToken());
         return ResultUtil.data(login);
