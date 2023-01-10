@@ -15,15 +15,15 @@ public class ProductDao {
 	private JdbcUtil jdbc;
 	//查询用户信息
 	public Map<String,Object> getUserInfo(HashMap map){
-		
-		String sql ="select * from user_info"
-				+ "\n where  user_id = ? "
+
+		String sql ="select * from sg_member"
+				+ "\n where  id = ? "
 				+ "\n limit 0,1";
-		
+
 		//传空的参数
-		
+
 		  Object[] obj = new Object[]{1}; obj[0] = map.get("user_id");
-		 
+
 		try {
 			Map<String, Object> res = jdbc.queryForMap(sql, obj);
 			return res;
@@ -33,18 +33,17 @@ public class ProductDao {
 		}
 	}
 	//获取商品
-	public List<Map<String,Object>> getPrdList(){
-		
+	public List<Map<String,Object>> getPrdList(HashMap map){
+
 		String sql ="select a.prd_id, a.prd_name, a.price, a.image_url, a.category_id, b.category_name from prd_list a, category b"
-				+ "\n where  a.category_id = b.category_id"
-				+ "\n order by a.prd_id";
-		
+				+ "\n where  a.store_id = ? "
+				+ "\n 		and a.category_id = b.category_id"
+				+ "\n 		order by a.prd_id";
+
 		//传空的参数
-		/*
-		 * Object[] obj = new Object[]{1}; obj[0] = map.get("member_id");
-		 */
+		Object[] obj = new Object[]{1}; obj[0] = map.get("store_id");
 		try {
-			List<Map<String,Object>> list  = (List)jdbc.getList(sql, null);
+			List<Map<String,Object>> list  = (List)jdbc.getList(sql, obj);
 			return list;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -53,10 +52,10 @@ public class ProductDao {
 	}
 	//获取category
 	public List<Map<String,Object>> getCategoryList(){
-		
+
 		String sql ="select category_id, category_name from category "
 				+ "\n order by category_id";
-		
+
 		//传空的参数
 		/*
 		 * Object[] obj = new Object[]{1}; obj[0] = map.get("member_id");
@@ -71,17 +70,17 @@ public class ProductDao {
 	}
 	//获取临时订单列表
 	public List<Map<String,Object>> getTempOrderList(String temp_order_id){
-		
+
 		String sql ="	SELECT m.* , m.order_cnt * m.price as total_price FROM "
 				+ "\n	(select a.temp_order_id , a.prd_id, a.order_cnt "
 				+ "\n		, b.prd_name, b.category_id, b.price, b.image_url from temp_order_list a , prd_list b  "
 				+ "\n 	where a.temp_order_id = ? "
 				+ "\n	 and a.prd_id = b.prd_id) m";
-		
+
 		//传空的参数
-		
+
 		  Object[] obj = new Object[]{1}; obj[0] = temp_order_id;
-		 
+
 		try {
 			List<Map<String,Object>> list = (List) jdbc.getList(sql,obj);
 			return list;
@@ -90,22 +89,26 @@ public class ProductDao {
 		}
 		return null;
 	}
-	
+
 	//insert 临时order表
 	public int insUserInfo(HashMap map){
-		
+
 		int res = 0;
 		try {
-			
-			String sql= "insert into user_info ("
-					+ "\n		user_id"
-					+ "\n		,nickname"
-					+ "\n		,gender"
-					+ "\n		,avatarurl"
-					+ "\n		,create_dt"
-					+ "\n		,update_dt )"
+
+			String sql= "insert into sg_member ("
+					+ "\n		id"
+					+ "\n		,nick_name"
+					+ "\n		,sex"
+					+ "\n		,face"
+					+ "\n		,custom_cl"
+					+ "\n		,create_time"
+					+ "\n		,update_time )"
 					+ "\n		values("
-					+ "\n		?, ?, ?, ?,  SYSDATE(), SYSDATE()"
+					+ "\n		?, ?, ?, ? "
+					+ "\n       ,  'client' "
+					+ "\n       ,  SYSDATE()"
+					+ "\n       ,  SYSDATE()"
 					+ "\n		)" ;
 			System.out.println(sql);
 			Object[] insObj = new Object[4];
@@ -113,20 +116,20 @@ public class ProductDao {
 			insObj[1] = map.get("nickname");
 			insObj[2] = map.get("gender");
 			insObj[3] = map.get("avatarurl");
-			
+
 			res = jdbc.update(sql, insObj);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return res;
 	}
 	//insert 临时order表
 	public int insTempOrder(HashMap map){
-		
+
 		int res = 0;
 		try {
-			
+
 			String sql= "insert into temp_order_list ("
 					+ "\n		temp_order_id"
 					+ "\n		,prd_id"
@@ -142,21 +145,21 @@ public class ProductDao {
 			insObj[0] = map.get("temp_order_id");
 			insObj[1] = map.get("prd_id");
 			insObj[2] = map.get("order_cnt");
-			
+
 			res = jdbc.update(sql, insObj);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return res;
 	}
 	//生成订单号
 	public int insOrderInfo(HashMap map){
-		
+
 		//先插入订单main表
 		int res = 0;
 		try {
-			
+
 			String sql= "insert into order_info ("
 					+ "\n		order_id"
 					+ "\n		,user_id"
@@ -187,9 +190,9 @@ public class ProductDao {
 			insObj[7] = map.get("addr_id");
 			insObj[8] = map.get("order_number");
 			insObj[9] = map.get("is_express");
-			
+
 			res = jdbc.update(sql, insObj);
-			
+
 			if(res > 0 ) {
 				//insert detail表
 				String sql2= "insert into order_info_detail ("
@@ -198,23 +201,23 @@ public class ProductDao {
 				System.out.println(sql2);
 				Object[] insObj2 = new Object[1];
 				insObj2[0] = map.get("temp_order_id");
-				
+
 				res = jdbc.update(sql2, insObj2);
-				
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return res;
 	}
 	//保存收货地址
 	public int insAddrInfo(HashMap map){
-		
+
 		//先插入订单main表
 		int res = 0;
 		try {
-			
+
 			String sql= "insert into address_list ("
 					+ "\n		user_id"
 					+ "\n		,receipt_name"
@@ -239,22 +242,22 @@ public class ProductDao {
 			insObj[4] = map.get("address_name");
 			insObj[5] = map.get("address_detail");
 			insObj[6] = map.get("detail");
-			
+
 			res = jdbc.update(sql, insObj);
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return res;
 	}
 	//修改收货地址
 	public int updAddrInfo(HashMap map){
-		
+
 		//先插入订单main表
 		int res = 0;
 		try {
-			
+
 			String sql= "update address_list set "
 					+ "\n		receipt_name = ?"
 					+ "\n		,gender = ?"
@@ -274,18 +277,18 @@ public class ProductDao {
 			insObj[5] = map.get("detail");
 			insObj[6] = map.get("addr_id");
 			insObj[7] = map.get("user_id");
-			
+
 			res = jdbc.update(sql, insObj);
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return res;
 	}
 	//修改默认收货地址
 	public int updDefaultAddr(HashMap map){
-		
+
 		//先插入订单main表
 		int res = 0;
 		try {
@@ -294,9 +297,9 @@ public class ProductDao {
 					+ "\n		where  user_id = ?" ;
 			Object[] insObj1 = new Object[1];
 			insObj1[0] = map.get("user_id");
-			
+
 			res = jdbc.update(sql1, insObj1);
-			
+
 			if(res > 0) {
 				String sql2= "update address_list set "
 						+ "\n		default_addr = ?"
@@ -306,21 +309,21 @@ public class ProductDao {
 				insObj2[0] = map.get("addr_id");
 				insObj2[1] = map.get("addr_id");
 				insObj2[2] = map.get("user_id");
-				
+
 				res = jdbc.update(sql2, insObj2);
 			}
-			
-			
+
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return res;
 	}
-	
+
 	//获取订单主表
 	public List<Map<String,Object>> getOrderList(HashMap map){
-		
+
 		String sql ="select a.order_id, a.user_id, a.total_cnt,a.total_price"
 				+ "\n		 , a.is_self, a.order_sendtime, a.order_state"
 				+ "\n		 , a.user_comment, a.create_dt  "
@@ -333,14 +336,14 @@ public class ProductDao {
 				}
 				sql+= "\n		ORDER BY order_state ASC, create_dt DESC"
 				+ "\n		LIMIT ?,? ";
-		
+
 		//传空的参数
-		
-		Object[] obj = new Object[3]; 
+
+		Object[] obj = new Object[3];
 		obj[0] = map.get("user_id");
 		obj[1] = map.get("last_id");
 		obj[2] = map.get("row");
-		
+
 		try {
 			List<Map<String,Object>> list  = (List)jdbc.getList(sql, obj);
 			return list;
@@ -351,7 +354,7 @@ public class ProductDao {
 	}
 	//获取临时订单列表
 	public List<Map<String,Object>> getOrderDetailList(HashMap map){
-		
+
 		String sql ="select a.order_id, a.total_price, a.is_self,a.order_state,a.order_sendtime, a.order_number, a.is_express"
 				+ "\n		, a.user_comment, date_format(a.create_dt,'%Y-%m-%d %T') as create_dt "
 				+ "\n		,b.prd_id, b.order_cnt "
@@ -361,9 +364,9 @@ public class ProductDao {
 				+ "\n		ON(b.prd_id = c.prd_id)"
 				+ "\n where  a.order_id = ?"
 				+ "\n	and a.order_id = b.order_id";
-		
+
 		//传空的参数
-		
+
 		  Object[] obj = new Object[]{1}; obj[0] = map.get("order_id");
 		  System.out.println(sql);
 		try {
@@ -376,7 +379,7 @@ public class ProductDao {
 	}
 	//获取收获地址
 	public List<Map<String,Object>> getAddrList(HashMap map){
-		
+
 		String sql ="select a_id, user_id ,gender,  receipt_name, receipt_phone "
 				+ "\n		,receipt_address_name,receipt_address_detail, receipt_detail "
 				+ "\n		,default_addr , remark, create_dt"
@@ -385,7 +388,7 @@ public class ProductDao {
 		if(map.get("addr_id") !=null ) {
 			sql+="\n	and a_id ="+ map.get("addr_id");
 		}
-		
+
 		//传空的参数
 		System.out.println(sql);
 		Object[] obj = new Object[]{1}; obj[0] = map.get("user_id");
@@ -399,13 +402,13 @@ public class ProductDao {
 	}
 	//获取收获地址
 	public Map<String, Object> getDefaultAddr(HashMap map){
-		
+
 		String sql ="SELECT b.* FROM  order_info a , address_list b "
 				+ "\n		WHERE order_id = ?"
 				+ "\n			AND IFNULL(a.addr_id,'') = b.a_id "
 				+ "\n	 LIMIT 0,1";
-		
-		
+
+
 		//传空的参数
 		System.out.println(sql);
 		Object[] obj = new Object[]{1}; obj[0] = map.get("order_id");
@@ -413,21 +416,21 @@ public class ProductDao {
 			Map<String, Object> queryForMap = jdbc.queryForMap(sql, obj);
 			return queryForMap;
 		} catch (Exception e) {
-			
+
 		}
 		return null;
 	}
 	//获取收获地址
 	public Map<String, Object> getDefaultAddr_temp(HashMap map){
-		
+
 		String sql ="SELECT b.* FROM  order_info a , address_list b "
 				+ "\n		WHERE user_id = ?"
 				+ "\n			AND IFNULL(a.addr_id,'') = b.a_id "
 				+ "\n		ORDER BY a.create_Dt DESC"
 				+ "\n	 LIMIT 0,1";
-		
+
 		String sql2 ="SELECT * FROM address_list where user_id = ? ORDER BY create_dt desc LIMIT 0,1 ";
-		
+
 		//传空的参数
 		System.out.println(sql);
 		Object[] obj = new Object[]{1}; obj[0] = map.get("user_id");
@@ -447,10 +450,10 @@ public class ProductDao {
 	}
 	//获取收获地址
 	public String getOrderNumber(){
-		
+
 		String sql ="SELECT IFNULL(COUNT(*), 0)+1 AS order_number FROM order_info WHERE date_format(create_dt,'%Y%m%d')  = date_format(NOW(),'%Y%m%d') AND order_number != null";
-		
-		
+
+
 		//传空的参数
 		System.out.println(sql);
 		//Object[] obj = new Object[]{1}; obj[0] = map.get("user_id");

@@ -110,9 +110,13 @@ public class ProductController {
 	@ResponseBody
 	public HashMap getPrdList(HttpServletRequest req, HttpServletResponse res){
 
+		HashMap reqMap = new HashMap();
+
+		reqMap.put("store_id", req.getParameter("store_id"))
+
 		HashMap result = new HashMap  ();
 
-		List<Map<String,Object>> prdList = service.getPrdList();	//商品列表
+		List<Map<String,Object>> prdList = service.getPrdList(reqMap);	//商品列表
 		List<Map<String,Object>> categoryList = service.getCategoryList();	//category 列表
 
 		result.put("prdList", prdList);
