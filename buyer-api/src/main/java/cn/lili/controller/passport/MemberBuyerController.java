@@ -165,10 +165,11 @@ public class MemberBuyerController {
                                           @NotNull(message = "密码不能为空") @RequestParam String password,
                                           @NotNull(message = "手机号为空") @RequestParam String mobilePhone,
                                           @RequestHeader String uuid,
+                                          @RequestParam String pwd,
                                           @NotNull(message = "验证码不能为空") @RequestParam String code) {
 
         if (smsUtil.verifyCode(mobilePhone, VerificationEnums.REGISTER, uuid, code)) {
-            return ResultUtil.data(memberService.register(username, password, mobilePhone));
+            return ResultUtil.data(memberService.register(username, password, mobilePhone,pwd));
         } else {
             throw new ServiceException(ResultCode.VERIFICATION_SMS_CHECKED_ERROR);
         }
