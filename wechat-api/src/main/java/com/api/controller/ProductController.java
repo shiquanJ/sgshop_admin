@@ -112,7 +112,7 @@ public class ProductController {
 
 		HashMap reqMap = new HashMap();
 
-		reqMap.put("store_id", req.getParameter("store_id"))
+		reqMap.put("store_id", req.getParameter("store_id"));
 
 		HashMap result = new HashMap  ();
 
