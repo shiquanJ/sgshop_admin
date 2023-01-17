@@ -94,8 +94,8 @@ public class GoodsImportServiceImpl implements GoodsImportService {
         sheet.setColumnWidth(13, 3000);
         sheet.setColumnWidth(14, 3000);
 
-        String goodsManagementCategory = storeDetailService.getStoreDetail(storeId).getGoodsManagementCategory();
-        List<CategoryVO> categoryVOList = this.categoryService.getStoreCategory(goodsManagementCategory.split(","));
+//        String goodsManagementCategory = storeDetailService.getStoreDetail(storeId).getGoodsManagementCategory();
+        List<CategoryVO> categoryVOList = this.categoryService.getStoreCategory(storeId);
         List<String> categoryNameList = new ArrayList<>();
 
         //先简单写，后期优化

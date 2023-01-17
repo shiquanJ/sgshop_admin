@@ -126,7 +126,7 @@ public interface CategoryService extends IService<Category> {
      * @param categories 经营范围
      * @return 分类VO列表
      */
-    List<CategoryVO> getStoreCategory(String[] categories);
+    List<CategoryVO> getStoreCategory(String categories);
 
     /**
      * 获取一级分类列表

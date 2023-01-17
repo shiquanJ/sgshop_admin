@@ -115,10 +115,11 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     }
 
     @Override
-    public List<CategoryVO> getStoreCategory(String[] categories) {
-        List<String> arr = Arrays.asList(categories.clone());
+    public List<CategoryVO> getStoreCategory(String categories) {
+//        List<String> arr = Arrays.asList(categories.clone());
+
         return categoryTree().stream()
-                .filter(item -> arr.contains(item.getId())).collect(Collectors.toList());
+                .filter(item -> categories.equals(item.getStoreId())).collect(Collectors.toList());
     }
 
     @Override

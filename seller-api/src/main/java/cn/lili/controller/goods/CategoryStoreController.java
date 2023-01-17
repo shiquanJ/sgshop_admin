@@ -59,8 +59,8 @@ public class CategoryStoreController {
     public ResultMessage<List<CategoryVO>> getListAll() {
         String storeId = Objects.requireNonNull(UserContext.getCurrentUser()).getStoreId();
         //获取店铺经营范围
-        String goodsManagementCategory = storeDetailService.getStoreDetail(storeId).getGoodsManagementCategory();
-        return ResultUtil.data(this.categoryService.getStoreCategory(goodsManagementCategory.split(",")));
+//        String goodsManagementCategory = storeDetailService.getStoreDetail(storeId).getGoodsManagementCategory();
+        return ResultUtil.data(this.categoryService.getStoreCategory(storeId));
     }
 //
 //    @ApiOperation(value = "获取所选分类关联的品牌信息")

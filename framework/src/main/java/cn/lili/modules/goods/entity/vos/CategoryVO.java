@@ -39,8 +39,8 @@ public class CategoryVO extends Category {
         BeanUtil.copyProperties(category, this);
     }
 
-    public CategoryVO(String id, String createBy, Date createTime, String updateBy, Date updateTime, Boolean deleteFlag, String name, String parentId, Integer level, BigDecimal sortOrder, Double commissionRate, String image, Boolean supportChannel) {
-        super(id, createBy, createTime, updateBy, updateTime, deleteFlag, name, parentId, level, sortOrder, commissionRate, image, supportChannel);
+    public CategoryVO(String id, String createBy, Date createTime, String updateBy, Date updateTime, Boolean deleteFlag, String name, String parentId, Integer level, BigDecimal sortOrder, Double commissionRate, String image, Boolean supportChannel,String storeId) {
+        super(id, createBy, createTime, updateBy, updateTime, deleteFlag, name, parentId, level, sortOrder, commissionRate, image, supportChannel,storeId);
     }
 
     public List<CategoryVO> getChildren() {
