@@ -5,6 +5,7 @@ import cn.lili.cache.Cache;
 import cn.lili.cache.CachePrefix;
 import cn.lili.common.enums.ResultCode;
 import cn.lili.common.exception.ServiceException;
+import cn.lili.common.security.context.UserContext;
 import cn.lili.modules.goods.entity.dos.Category;
 import cn.lili.modules.goods.entity.vos.CategoryVO;
 import cn.lili.modules.goods.mapper.CategoryMapper;
@@ -115,11 +116,11 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     }
 
     @Override
-    public List<CategoryVO> getStoreCategory(String categories) {
+    public List<CategoryVO> getStoreCategory(String storeId) {
 //        List<String> arr = Arrays.asList(categories.clone());
 
         return categoryTree().stream()
-                .filter(item -> categories.equals(item.getStoreId())).collect(Collectors.toList());
+                .filter(item -> storeId.equals(item.getStoreId())).collect(Collectors.toList());
     }
 
     @Override
@@ -149,20 +150,9 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     @Override
     public List<CategoryVO> listAllChildren() {
 
-        //获取全部分类
-        List<Category> list = this.list();
-
-        //构造分类树
-        List<CategoryVO> categoryVOList = new ArrayList<>();
-        for (Category category : list) {
-            if (("0").equals(category.getParentId())) {
-                CategoryVO categoryVO = new CategoryVO(category);
-                categoryVO.setChildren(findChildren(list, categoryVO));
-                categoryVOList.add(categoryVO);
-            }
-        }
-        categoryVOList.sort(Comparator.comparing(Category::getSortOrder));
-        return categoryVOList;
+        String storeId = Objects.requireNonNull(UserContext.getCurrentUser()).getStoreId();
+        return categoryTree().stream()
+                .filter(item -> item.getStoreId().equals(storeId)).collect(Collectors.toList());
     }
 
     /**

@@ -12,7 +12,10 @@ import cn.lili.modules.goods.entity.vos.CategoryVO;
 import cn.lili.modules.goods.service.CategoryBrandService;
 import cn.lili.modules.goods.service.CategoryService;
 import cn.lili.modules.goods.service.GoodsService;
+import cn.lili.modules.goods.serviceimpl.CategoryServiceImpl;
+import cn.lili.modules.goods.serviceimpl.GoodsServiceImpl;
 import cn.lili.modules.store.service.StoreDetailService;
+import cn.lili.modules.store.serviceimpl.StoreDetailServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -38,50 +41,29 @@ import java.util.Objects;
 @CacheConfig(cacheNames = "category")
 public class CategoryStoreController {
 
-    /**
-     * 分类
-     */
-//    @Autowired
-//    private CategoryService categoryService;
-//    /**
-//     * 分类品牌
-//     */
-//    @Autowired
-//    private CategoryBrandService categoryBrandService;
-//    /**
-//     * 店铺详情
-//     */
     @Autowired
-    private StoreDetailService storeDetailService;
+    private StoreDetailServiceImpl storeDetailService;
 
-    @ApiOperation(value = "获取店铺经营的分类")
-    @GetMapping(value = "/all")
-    public ResultMessage<List<CategoryVO>> getListAll() {
-        String storeId = Objects.requireNonNull(UserContext.getCurrentUser()).getStoreId();
-        //获取店铺经营范围
-//        String goodsManagementCategory = storeDetailService.getStoreDetail(storeId).getGoodsManagementCategory();
-        return ResultUtil.data(this.categoryService.getStoreCategory(storeId));
-    }
-//
-//    @ApiOperation(value = "获取所选分类关联的品牌信息")
-//    @GetMapping(value = "/{categoryId}/brands")
-//    @ApiImplicitParams({
-//            @ApiImplicitParam(name = "categoryId", value = "分类id", required = true, paramType = "path"),
-//    })
-//    public List<CategoryBrandVO> queryBrands(@PathVariable String categoryId) {
-//        return this.categoryBrandService.getCategoryBrandList(categoryId);
-//    }
     /**
      * 分类
      */
     @Autowired
-    private CategoryService categoryService;
+    private CategoryServiceImpl categoryService;
 
     /**
      * 商品
      */
     @Autowired
-    private GoodsService goodsService;
+    private GoodsServiceImpl goodsService;
+
+
+    @ApiOperation(value = "获取店铺经营的分类")
+    @GetMapping(value = "/all")
+    public ResultMessage<List<CategoryVO>> getListAll() {
+        String storeId = Objects.requireNonNull(UserContext.getCurrentUser()).getStoreId();
+        //获取分类
+        return ResultUtil.data(this.categoryService.getStoreCategory(storeId));
+    }
 
     @ApiOperation(value = "查询某分类下的全部子分类列表")
     @ApiImplicitParam(name = "parentId", value = "父id，顶级为0", required = true, dataType = "String", paramType = "path")
