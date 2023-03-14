@@ -8,6 +8,11 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * 运营后台 API
@@ -31,6 +36,12 @@ public class ManagerApiApplication {
         System.setProperty("rocketmq.client.logUseSlf4j","true");*/
 
         SpringApplication.run(ManagerApiApplication.class, args);
+    }
+    @RequestMapping(value={"/","/main"})
+    public ModelAndView main(HttpServletRequest req, HttpServletResponse res){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("/main");
+        return mv;
     }
 
 }

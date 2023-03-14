@@ -30,7 +30,7 @@ public class GoodsSkuBuilder {
      */
     public static GoodsSku build(Goods goods, Map<String, Object> skuInfo) {
         GoodsSku goodsSku = new GoodsSku(goods);
-        builderSingle(goodsSku, skuInfo);
+        builderSingle(goodsSku, skuInfo, goods);
         return goodsSku;
     }
 
@@ -46,14 +46,14 @@ public class GoodsSkuBuilder {
         List<GoodsSku> goodsSkus = new ArrayList<>();
         for (Map<String, Object> skuInfo : skuList) {
             GoodsSku goodsSku = new GoodsSku(goods);
-            builderSingle(goodsSku, skuInfo);
+            builderSingle(goodsSku, skuInfo, goods);
             goodsSkus.add(goodsSku);
         }
         return goodsSkus;
     }
 
 
-    private static void builderSingle(GoodsSku goodsSku, Map<String, Object> skuInfo) {
+    private static void builderSingle(GoodsSku goodsSku, Map<String, Object> skuInfo, Goods goods) {
         Assert.notNull(goodsSku, "goodsSku不能为空");
         Assert.notEmpty(skuInfo, "skuInfo不能为空");
         //规格简短信息
@@ -83,7 +83,7 @@ public class GoodsSkuBuilder {
 
 
         //规格信息
-        goodsSku.setId(Convert.toStr(skuInfo.get("id"), ""));
+        goodsSku.setId(Convert.toStr(goods.getId(), ""));
         goodsSku.setSn(Convert.toStr(skuInfo.get("sn")));
         goodsSku.setWeight(Convert.toDouble(skuInfo.get("weight"), 0D));
         goodsSku.setPrice(Convert.toDouble(skuInfo.get("price"), 0D));

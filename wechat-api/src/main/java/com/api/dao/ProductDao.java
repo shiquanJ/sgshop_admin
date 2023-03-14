@@ -35,10 +35,12 @@ public class ProductDao {
 	//获取商品
 	public List<Map<String,Object>> getPrdList(HashMap map){
 
-		String sql ="select a.prd_id, a.prd_name, a.price, a.image_url, a.category_id, b.category_name from prd_list a, category b"
-				+ "\n where  a.store_id = ? "
-				+ "\n 		and a.category_id = b.category_id"
-				+ "\n 		order by a.prd_id";
+		String sql ="select a.id, a.goods_name, a.price, a.quantity, a.thumbnail, b.name "
+				+ "\n from sg_goods a, sg_category b"
+				+ "\n where  a.store_id = b.store_id "
+				+ "\n 		and a.category_id = b.id"
+				+ "\n 		and a.store_id = ? "
+				+ "\n 		order by b.sort_order";
 
 		//传空的参数
 		Object[] obj = new Object[]{1}; obj[0] = map.get("store_id");

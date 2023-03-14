@@ -11,6 +11,7 @@ import cn.lili.modules.goods.entity.dto.DraftGoodsDTO;
 import cn.lili.modules.goods.entity.dto.DraftGoodsSearchParams;
 import cn.lili.modules.goods.entity.vos.DraftGoodsVO;
 import cn.lili.modules.goods.service.DraftGoodsService;
+import cn.lili.modules.goods.serviceimpl.DraftGoodsServiceImpl;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -30,7 +31,7 @@ import java.util.Objects;
 @RequestMapping("/store/goods/draftGoods")
 public class DraftGoodsStoreController {
     @Autowired
-    private DraftGoodsService draftGoodsService;
+    private DraftGoodsServiceImpl draftGoodsService;
 
 
     @ApiOperation(value = "分页获取草稿商品列表")

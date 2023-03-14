@@ -16,6 +16,7 @@ import cn.lili.modules.goods.entity.vos.GoodsVO;
 import cn.lili.modules.goods.entity.vos.StockWarningVO;
 import cn.lili.modules.goods.service.GoodsService;
 import cn.lili.modules.goods.service.GoodsSkuService;
+import cn.lili.modules.goods.serviceimpl.GoodsServiceImpl;
 import cn.lili.modules.store.entity.dos.StoreDetail;
 import cn.lili.modules.store.service.StoreDetailService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -47,7 +48,7 @@ public class GoodsStoreController {
      * 商品
      */
     @Autowired
-    private GoodsService goodsService;
+    private GoodsServiceImpl goodsService;
     /**
      * 商品sku
      */

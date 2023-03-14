@@ -13,6 +13,7 @@ import cn.lili.common.properties.RocketmqCustomProperties;
 import cn.lili.common.security.AuthUser;
 import cn.lili.common.security.context.UserContext;
 import cn.lili.common.security.enums.UserEnums;
+import cn.lili.common.utils.StringUtils;
 import cn.lili.modules.goods.entity.dos.Category;
 import cn.lili.modules.goods.entity.dos.Goods;
 import cn.lili.modules.goods.entity.dos.GoodsGallery;
@@ -86,7 +87,7 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
      * 商品规格
      */
     @Autowired
-    private GoodsSkuService goodsSkuService;
+    private GoodsSkuServiceImpl goodsSkuService;
     /**
      * 店铺详情
      */
@@ -179,6 +180,7 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
             goods.setParams(JSONUtil.toJsonStr(goodsOperationDTO.getGoodsParamsDTOList()));
         }
         //添加商品
+        goods.setId(StringUtils.getIdStr());
         this.save(goods);
         //添加商品sku信息
         this.goodsSkuService.add(goods, goodsOperationDTO);

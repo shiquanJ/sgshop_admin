@@ -127,15 +127,12 @@ public class GoodsSkuServiceImpl extends ServiceImpl<GoodsSkuMapper, GoodsSku> i
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void add(Goods goods, GoodsOperationDTO goodsOperationDTO) {
-        // 是否存在规格
-        if (goodsOperationDTO.getSkuList() == null || goodsOperationDTO.getSkuList().isEmpty()) {
-            throw new ServiceException(ResultCode.MUST_HAVE_GOODS_SKU);
-        }
         // 检查是否需要生成索引
         List<GoodsSku> goodsSkus = GoodsSkuBuilder.buildBatch(goods, goodsOperationDTO.getSkuList());
         renderGoodsSkuList(goodsSkus, goodsOperationDTO);
 
         if (!goodsSkus.isEmpty()) {
+            // 修改时ID重新赋值
             this.saveOrUpdateBatch(goodsSkus);
             this.updateStock(goodsSkus);
         }
@@ -164,20 +161,12 @@ public class GoodsSkuServiceImpl extends ServiceImpl<GoodsSkuMapper, GoodsSku> i
             //删除sku相册
             goodsGalleryService.removeByGoodsId(goods.getId());
 
-            //发送mq消息
-            String destination = rocketmqCustomProperties.getGoodsTopic() + ":" + GoodsTagsEnum.SKU_DELETE.name();
-            rocketMQTemplate.asyncSend(destination, JSONUtil.toJsonStr(oldSkuIds), RocketmqSendCallbackBuilder.commonCallback());
         } else {
             skuList = new ArrayList<>();
             for (Map<String, Object> map : goodsOperationDTO.getSkuList()) {
                 GoodsSku sku = GoodsSkuBuilder.build(goods, map);
                 renderGoodsSku(sku, goodsOperationDTO);
                 skuList.add(sku);
-                //如果商品状态值不对，则es索引移除
-                if (goods.getAuthFlag().equals(GoodsAuthEnum.PASS.name()) && goods.getMarketEnable().equals(GoodsStatusEnum.UPPER.name())) {
-                    goodsIndexService.deleteIndexById(sku.getId());
-                    this.clearCache(sku.getId());
-                }
             }
         }
         if (!skuList.isEmpty()) {

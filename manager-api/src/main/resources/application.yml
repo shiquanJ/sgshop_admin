@@ -22,6 +22,10 @@ management:
       exposure:
         include: '*'
 spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/view/
+      suffix: .jsp
   application:
     name: manager-api
   # 要在其中注册的Spring Boot Admin Server的URL。

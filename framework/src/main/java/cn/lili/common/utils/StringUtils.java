@@ -8,6 +8,8 @@ import java.beans.PropertyDescriptor;
 import java.lang.reflect.Method;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -190,6 +192,13 @@ public class StringUtils extends StrUtil {
         return str;
     }
 
+    public static String getIdStr() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        Date date = new Date();
+        String format = sdf.format(date);
+        long time = date.getTime();
+        return format+time;
+    }
 }
 
 
